@@ -22,9 +22,13 @@ public class Level : MonoBehaviour
     {
 
     }
-
     void CheckRotation() {
-        if ()
+        if (finalRotation.y - 5 < transform.rotation.eulerAngles.y
+            && transform.rotation.eulerAngles.y < finalRotation.y + 5)
+        {
+            levelStatus = status.Done;
+            Debug.Log("Finish");
+        }
     }
     void Update()
     {
