@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
-    public float horizontalSpeed = 1.0f;
-    public float verticalSpeed = 1.0f;
+    private float horizontalSpeed = 1.0f;
+    private float verticalSpeed = 1.0f;
     private Vector3 screenPoint;
+    private Level   levelDetails;
+    void Start()
+    {
+        levelDetails = GetComponent<Object>().level;
+    }
     void OnMouseDown()
     {
         screenPoint = new Vector3(0.0f, 0.0f, 0.0f);
@@ -27,7 +32,6 @@ public class ObjectController : MonoBehaviour
     {
         Vector3 limitPosition = transform.position;
         screenPoint.y += Input.GetAxis("Mouse Y");
-        float   translation = Time.deltaTime * Input.GetAxis("Mouse Y");
         if (transform.position.y < 6.0f)
         {
             screenPoint.y = 0.0f;
@@ -44,7 +48,8 @@ public class ObjectController : MonoBehaviour
     }
     void RotateObject()
     {
-        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
+        if (levelDetails.currentDifficulty >= Level.difficulty.TWO
+            && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
             screenPoint.y += Input.GetAxis("Mouse Y");
         else
             screenPoint.x += Input.GetAxis("Mouse X");
@@ -53,7 +58,8 @@ public class ObjectController : MonoBehaviour
     void OnMouseDrag()
     {
         ResetOffset();
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if (levelDetails.currentDifficulty == Level.difficulty.THREE
+            && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
             MoveObject();
         else
             RotateObject();

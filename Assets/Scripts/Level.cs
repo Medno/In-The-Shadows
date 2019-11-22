@@ -9,29 +9,59 @@ public class Level : MonoBehaviour
         Available = 1 << 2,
         Done = 1 << 3
     };
-    public enum level {
+    public enum difficulty {
         ONE, TWO, THREE
     };
-    private string levelName;
-    public MeshRenderer mesh;
-    public level difficulty;
+    [System.Serializable]
+    public struct LoadModels {
+        public GameObject model;
+        public Vector3 expectedPosition;
+        public Vector3 expectedRotation;
+        public Vector3 startPosition;
+    };
+    public string levelName;
+    public difficulty currentDifficulty;
     public status levelStatus;
-    public Vector3  finalRotation;
-
+    public GameObject  objectPrefab;
+    public LoadModels[]  modelDetails;
+    private List<GameObject>  objectsInstantiated = new List<GameObject>();
+    private List<Object>  objects = new List<Object>();
+    void InitObject()
+    {
+        for(int i = 0; i < modelDetails.Length; i++)
+        {
+            GameObject clone = Instantiate(objectPrefab, modelDetails[i].startPosition, Quaternion.identity);
+            clone.transform.parent = gameObject.transform;
+            clone.GetComponent<Object>().expectedPosition = modelDetails[i].expectedPosition;
+            clone.GetComponent<Object>().expectedRotation = modelDetails[i].expectedRotation;
+            GameObject cloneModel = Instantiate(modelDetails[i].model, modelDetails[i].startPosition, Quaternion.identity);
+            cloneModel.transform.parent = clone.transform;
+            clone.GetComponent<MeshCollider>().sharedMesh = null;
+            clone.GetComponent<MeshCollider>().sharedMesh = cloneModel.GetComponentInChildren<MeshFilter>().mesh;
+            objectsInstantiated.Add(clone);
+            objects.Add(clone.GetComponent<Object>());
+        }
+    }
     void Start()
     {
-
+        InitObject();
     }
-    void CheckRotation() {
-        if (finalRotation.y - 5 < transform.rotation.eulerAngles.y
-            && transform.rotation.eulerAngles.y < finalRotation.y + 5)
-        {
+    void LevelDone()
+    {
+        if (levelStatus != status.Done)
             levelStatus = status.Done;
-            Debug.Log("Finish");
-        }
+    }
+    void CheckObjectValidation()
+    {
+        bool allFinished = true;
+        foreach(Object obj in objects)
+            if (!obj.finished)
+                allFinished = false;
+        if (allFinished)
+            LevelDone();
     }
     void Update()
     {
-        CheckRotation();
+        CheckObjectValidation();
     }
 }
