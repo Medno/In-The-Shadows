@@ -26,6 +26,7 @@ public class Level : MonoBehaviour
     public LoadModels[]  modelDetails;
     private List<GameObject>  objectsInstantiated = new List<GameObject>();
     private List<Object>  objects = new List<Object>();
+    public Vector3 scale = new Vector3(1.0f, 1.0f, 1.0f);
     void InitObject()
     {
         for(int i = 0; i < modelDetails.Length; i++)
@@ -40,6 +41,7 @@ public class Level : MonoBehaviour
             clone.GetComponent<MeshCollider>().sharedMesh = cloneModel.GetComponentInChildren<MeshFilter>().mesh;
             objectsInstantiated.Add(clone);
             objects.Add(clone.GetComponent<Object>());
+            clone.transform.localScale = scale;
         }
     }
     void Start()

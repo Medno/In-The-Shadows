@@ -53,7 +53,7 @@ public class ObjectController : MonoBehaviour
             screenPoint.y += Input.GetAxis("Mouse Y");
         else
             screenPoint.x += Input.GetAxis("Mouse X");
-        transform.Rotate(verticalSpeed * screenPoint.y * Time.deltaTime, horizontalSpeed * screenPoint.x * Time.deltaTime, 0);
+        transform.Rotate(verticalSpeed * screenPoint.y * Time.deltaTime, horizontalSpeed * screenPoint.x * Time.deltaTime, 0, Space.World);
     }
     void OnMouseDrag()
     {
