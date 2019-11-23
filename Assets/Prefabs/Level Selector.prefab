@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 661863198507734869}
   m_Layer: 0
   m_Name: Level Selector
-  m_TagString: Untagged
+  m_TagString: Level
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,6 +128,7 @@ MonoBehaviour:
   level: {fileID: 0}
   levelDetails: {fileID: 0}
   levelStatusText: {fileID: 2796739466635865003}
+  firstLevel: 0
 --- !u!1 &6860886532294711452
 GameObject:
   m_ObjectHideFlags: 0

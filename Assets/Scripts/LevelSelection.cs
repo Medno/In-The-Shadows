@@ -12,6 +12,7 @@ public class LevelSelection : MonoBehaviour
 	private Animator animator;
 	public bool	firstLevel;
 	private string levelName;
+	private int status;
 	void GetLevelStatus() {
 		levelName = level.GetComponent<Level>().levelName;
 		if (firstLevel && !PlayerPrefs.HasKey(levelName + "_status"))
@@ -19,7 +20,7 @@ public class LevelSelection : MonoBehaviour
 			PlayerPrefs.SetInt(levelName + "_status", 1);
             PlayerPrefs.Save();
 		}
-		int status = PlayerPrefs.GetInt(levelName + "_status");
+		status = PlayerPrefs.GetInt(levelName + "_status");
 		if (status == 2)
 			levelStatusText.text = "✓";
 		else if (status == 1)
@@ -42,6 +43,7 @@ public class LevelSelection : MonoBehaviour
 	}
 	void OnMouseDown()
     {
-		StartCoroutine(LaunchLevel());
+		if (status > 0 || LevelManager.testMode)
+			StartCoroutine(LaunchLevel());
 	}
 }
