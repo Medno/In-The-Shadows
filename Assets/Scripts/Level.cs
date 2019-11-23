@@ -55,7 +55,9 @@ public class Level : MonoBehaviour
         {
             levelStatus = status.Done;
             PlayerPrefs.SetInt(levelName + "_status", 2);
-            PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
+            if (nextLevel)
+                PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
+            PlayerPrefs.Save();
         }
     }
     void CheckObjectValidation()
