@@ -7,16 +7,41 @@ using UnityEngine.SceneManagement;
 public class LevelSelection : MonoBehaviour
 {
     public GameObject  level;
-	void Start () {
-		Button btn = GetComponent<Button>();
-		btn.onClick.AddListener(LoadLevel);
+    public Level  levelDetails;
+	public TextMesh levelStatusText;
+	private Animator animator;
+	public bool	firstLevel;
+	private string levelName;
+	void GetLevelStatus() {
+		levelName = level.GetComponent<Level>().levelName;
+		if (firstLevel && !PlayerPrefs.HasKey(levelName + "_status"))
+		{
+			PlayerPrefs.SetInt(levelName + "_status", 1);
+            PlayerPrefs.Save();
+		}
+		int status = PlayerPrefs.GetInt(levelName + "_status");
+		if (status == 2)
+			levelStatusText.text = "✓";
+		else if (status == 1)
+			levelStatusText.text = "?";
+		else
+			levelStatusText.text = "X";
 	}
-
-	void LoadLevel()
-    {
+	void Start () {
+		animator = GetComponent<Animator>();
+		levelDetails = level.GetComponent<Level>();
+		GetLevelStatus();
+	}
+	IEnumerator LaunchLevel()
+	{
         LevelManager.selectedLevel = level;
-		Debug.Log ("You have clicked the button!");
+		animator.SetTrigger("Clicked");
+		Debug.Log("You pressed the button!");
+		yield return new WaitForSeconds(0.4f);
         SceneManager.LoadScene("Level");
 	}
-
+	void OnMouseDown()
+    {
+		StartCoroutine(LaunchLevel());
+	}
 }

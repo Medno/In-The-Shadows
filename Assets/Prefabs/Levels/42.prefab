@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &9156550453302226150
+--- !u!1001 &8208635835113378046
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2016716145938214009, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: m_Name
-      value: Level Elephant
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214011, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
@@ -70,52 +70,112 @@ PrefabInstance:
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: modelDetails.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: modelDetails.Array.data[0].model
       value: 
-      objectReference: {fileID: 100000, guid: 88e4affa44be74cb2b27fb085cd5aa4a, type: 3}
+      objectReference: {fileID: 100002, guid: 5ddeeaebc1afd4b08ad54da5e509cacd, type: 3}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
-      propertyPath: currentDifficulty
-      value: 1
+      propertyPath: modelDetails.Array.data[1].model
+      value: 
+      objectReference: {fileID: 100002, guid: a525f07034f574c52ad08e8bd195adaa, type: 3}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: scale.x
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
-      propertyPath: modelDetails.Array.data[0].startPosition.x
+      propertyPath: scale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: scale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[0].expectedPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[0].expectedPosition.y
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
-      propertyPath: modelDetails.Array.data[0].startPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].startPosition.z
-      value: -2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].expectedRotation.x
-      value: 78
+      propertyPath: modelDetails.Array.data[0].expectedPosition.z
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: modelDetails.Array.data[0].expectedRotation.y
-      value: -25
+      value: 95
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
-      propertyPath: modelDetails.Array.data[0].expectedRotation.z
-      value: 78
+      propertyPath: modelDetails.Array.data[1].expectedRotation.y
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[1].expectedPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[1].expectedPosition.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[1].expectedPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[1].startPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[0].startPosition.z
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[1].startPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[0].startPosition.x
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[0].startPosition.y
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: modelDetails.Array.data[1].startPosition.y
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: currentDifficulty
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: levelName
-      value: Frightened of a Mouse
+      value: The answer of the Ultimate Question of Life
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a1c511b43494d3ca6f39afbe52c72c, type: 3}

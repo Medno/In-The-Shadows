@@ -20,6 +20,7 @@ public class Level : MonoBehaviour
         public Vector3 startPosition;
     };
     public string levelName;
+    public Level nextLevel;
     public difficulty currentDifficulty;
     public status levelStatus;
     public GameObject  objectPrefab;
@@ -51,7 +52,11 @@ public class Level : MonoBehaviour
     void LevelDone()
     {
         if (levelStatus != status.Done)
+        {
             levelStatus = status.Done;
+            PlayerPrefs.SetInt(levelName + "_status", 2);
+            PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
+        }
     }
     void CheckObjectValidation()
     {

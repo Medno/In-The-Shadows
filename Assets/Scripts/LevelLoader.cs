@@ -6,6 +6,9 @@ public class LevelLoader : MonoBehaviour
 {
     void Start()
     {
-        Instantiate(LevelManager.selectedLevel, LevelManager.selectedLevel.transform.position, Quaternion.identity);
+        if (LevelManager.selectedLevel)
+            Instantiate(LevelManager.selectedLevel, LevelManager.selectedLevel.transform.position, Quaternion.identity);
+        else
+            Debug.Log("There is no level to load");
     }
 }
