@@ -40,7 +40,7 @@ public class CameraController : MonoBehaviour
         float speed = 2.0f;
         Vector3 offsetPosition = Vector3.zero;
         Vector3 castPoint = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        Debug.Log(castPoint.x);
+        // Debug.Log(castPoint.x);
         if (castPoint.x > 0.6f && transform.position.x < xMax + 1.0f)
             offsetPosition.x = (castPoint.x - 0.5f) * Time.deltaTime * speed;
         if (castPoint.x < 0.4f && transform.position.x > xMin - 1.0f)

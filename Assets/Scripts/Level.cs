@@ -51,7 +51,7 @@ public class Level : MonoBehaviour
     }
     void LevelDone()
     {
-        if (levelStatus != status.Done)
+        if (levelStatus != status.Done && !LevelManager.testMode)
         {
             levelStatus = status.Done;
             PlayerPrefs.SetInt(levelName + "_status", 2);
@@ -62,12 +62,15 @@ public class Level : MonoBehaviour
     }
     void CheckObjectValidation()
     {
-        bool allFinished = true;
-        foreach(Object obj in objects)
-            if (!obj.finished)
-                allFinished = false;
-        if (allFinished)
-            LevelDone();
+        if (objects.Count > 0)
+        {
+            bool allFinished = true;
+            foreach(Object obj in objects)
+                if (!obj.finished)
+                    allFinished = false;
+            if (allFinished)
+                LevelDone();
+        }
     }
     void Update()
     {

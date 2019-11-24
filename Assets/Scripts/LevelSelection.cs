@@ -23,7 +23,7 @@ public class LevelSelection : MonoBehaviour
 		status = PlayerPrefs.GetInt(levelName + "_status");
 		if (status == 2)
 			levelStatusText.text = "✓";
-		else if (status == 1)
+		else if (status == 1 || LevelManager.testMode)
 			levelStatusText.text = "?";
 		else
 			levelStatusText.text = "X";
