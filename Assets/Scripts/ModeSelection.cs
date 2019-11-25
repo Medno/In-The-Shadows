@@ -6,31 +6,26 @@ using UnityEngine.UI;
 
 public class ModeSelection : MonoBehaviour
 {
-    public Button playMode;
-    public Button testMode;
-    void LaunchLevelSelection()
+    private Button buttonMode;
+	private AnimateClicked animateButton;
+    IEnumerator LaunchGame()
     {
-        SceneManager.LoadScene("Level Selection");
+        if (tag == "Test Mode")
+            LevelManager.testMode = true;
+        else
+            LevelManager.testMode = false;
+        yield return StartCoroutine(animateButton.Animate());
+        TransitionManager.instance.TriggerTransition();
     }
-    void LaunchPlayMode()
+    void AnimateLaunching()
     {
-        LevelManager.testMode = false;
-        LaunchLevelSelection();
-    }
-    void LaunchTestMode()
-    {
+        StartCoroutine(LaunchGame());
         LevelManager.testMode = true;
-        LaunchLevelSelection();
-
     }
     void Start()
     {
-        playMode.onClick.AddListener(LaunchPlayMode);
-        testMode.onClick.AddListener(LaunchTestMode);
-    }
-
-    void Update()
-    {
-        
+        buttonMode = GetComponent<Button>();
+        buttonMode.onClick.AddListener(AnimateLaunching);
+		animateButton = GetComponent<AnimateClicked>();
     }
 }

@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
-    public GameObject  level;
-    public Level  levelDetails;
+	public GameObject  level;
+	public Level  levelDetails;
 	public TextMesh levelStatusText;
-	private Animator animator;
 	public bool	firstLevel;
 	private string levelName;
 	private int status;
+	private AnimateClicked button;
 	void GetLevelStatus() {
 		levelName = level.GetComponent<Level>().levelName;
 		if (firstLevel && !PlayerPrefs.HasKey(levelName + "_status"))
@@ -29,21 +29,24 @@ public class LevelSelection : MonoBehaviour
 			levelStatusText.text = "X";
 	}
 	void Start () {
-		animator = GetComponent<Animator>();
 		levelDetails = level.GetComponent<Level>();
+		button = GetComponent<AnimateClicked>();
 		GetLevelStatus();
 	}
-	IEnumerator LaunchLevel()
+	void LaunchLevel()
 	{
-        LevelManager.selectedLevel = level;
-		animator.SetTrigger("Clicked");
+    SceneManager.LoadScene("Level");
+	}
+	IEnumerator SelectLevel()
+	{
+		LevelManager.selectedLevel = level;
+		yield return StartCoroutine(button.Animate());
 		Debug.Log("You pressed the button!");
-		yield return new WaitForSeconds(0.4f);
-        SceneManager.LoadScene("Level");
+		TransitionManager.instance.TriggerTransition();
 	}
 	void OnMouseDown()
     {
 		if (status > 0 || LevelManager.testMode)
-			StartCoroutine(LaunchLevel());
+			StartCoroutine(SelectLevel());
 	}
 }

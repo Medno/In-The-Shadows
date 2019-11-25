@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Level
   - Object
+  - Test Mode
+  - Play Mode
   layers:
   - Default
   - TransparentFX
