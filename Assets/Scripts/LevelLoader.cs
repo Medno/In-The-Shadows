@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
-    void Start()
+    [HideInInspector] public GameObject level;
+    void Awake()
     {
         if (LevelManager.selectedLevel)
-            Instantiate(LevelManager.selectedLevel, LevelManager.selectedLevel.transform.position, Quaternion.identity);
+            level = Instantiate(LevelManager.selectedLevel, LevelManager.selectedLevel.transform.position, Quaternion.identity);
         else
             Debug.Log("There is no level to load");
     }
