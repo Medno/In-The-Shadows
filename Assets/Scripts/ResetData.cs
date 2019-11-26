@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ResetData : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ResetData : MonoBehaviour
     {
         confirmation.SetActive(true);
         yield return new WaitForSeconds(2.0f);
+        EventSystem.current.SetSelectedGameObject(null);
         confirmation.SetActive(false);
     }
     void Reset()

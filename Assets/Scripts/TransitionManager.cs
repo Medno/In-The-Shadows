@@ -30,4 +30,8 @@ public class TransitionManager : MonoBehaviour
     {
         SceneManager.LoadScene(levelToLoad);
     }
+    public void SetLevelToLoad(string value)
+    {
+        instance.levelToLoad = value;
+    }
 }

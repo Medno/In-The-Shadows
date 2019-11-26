@@ -44,6 +44,7 @@ public class LevelSelection : MonoBehaviour
 	IEnumerator SelectLevel()
 	{
 		LevelManager.selectedLevel = level;
+		TransitionManager.instance.levelToLoad = "Level";
 		yield return StartCoroutine(button.Animate());
 	}
 	void OnMouseDown()
