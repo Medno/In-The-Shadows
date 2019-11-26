@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 public class AnimateClicked : MonoBehaviour
 {
@@ -13,9 +14,15 @@ public class AnimateClicked : MonoBehaviour
     }
     public IEnumerator Animate()
     {
+        Debug.Log("Animated button has been clicked !");
         animator.SetTrigger("Clicked");
 		yield return new WaitForSeconds(0.4f);
         if (functionToExecute.GetPersistentEventCount() > 0)
             functionToExecute.Invoke();
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+    public void StartAnimation()
+    {
+        StartCoroutine(Animate());
     }
 }

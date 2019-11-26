@@ -29,6 +29,8 @@ public class Level : MonoBehaviour
     private List<GameObject>  objectsInstantiated = new List<GameObject>();
     private List<Object>  objects = new List<Object>();
     public Vector3 scale = new Vector3(1.0f, 1.0f, 1.0f);
+    private CanvasDisplay eolevel;
+    private Light[] spotlights;
     void InitObject()
     {
         for(int i = 0; i < modelDetails.Length; i++)
@@ -48,17 +50,38 @@ public class Level : MonoBehaviour
     }
     void Start()
     {
+        eolevel = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
+        spotlights = GameObject.FindObjectsOfType<Light>();
         InitObject();
+    }
+    void SaveProgression()
+    {
+        PlayerPrefs.SetInt(levelName + "_status", 2);
+        if (nextLevel)
+            PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
+        PlayerPrefs.Save();
+    }
+    IEnumerator ValidationLevelAnimation()
+    {
+        foreach(Light light in spotlights)
+        {
+            if (light.gameObject.name == "Spot Light")
+                light.GetComponent<Animator>().SetTrigger("EOL");
+            else
+                light.GetComponent<Animator>().SetTrigger("Larger");
+        }
+        yield return new WaitForSeconds(5.0f);
+        eolevel.EnableCanvas();
     }
     void LevelDone()
     {
-        if (levelStatus != status.Done && !LevelManager.testMode)
+        if (levelStatus != status.Done)
         {
             levelStatus = status.Done;
-            PlayerPrefs.SetInt(levelName + "_status", 2);
-            if (nextLevel)
-                PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
-            PlayerPrefs.Save();
+            LevelManager.selectedLevel = gameObject;
+            StartCoroutine(ValidationLevelAnimation());
+            if (!LevelManager.testMode)
+                SaveProgression();
         }
     }
     void CheckObjectValidation()

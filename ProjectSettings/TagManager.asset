@@ -9,6 +9,9 @@ TagManager:
   - Test Mode
   - Play Mode
   - Transition Manager
+  - Level Selector Header
+  - End Of Level Canvas
+  - Spotlight
   layers:
   - Default
   - TransparentFX

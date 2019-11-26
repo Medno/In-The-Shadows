@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class LevelSelection : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class LevelSelection : MonoBehaviour
 	private string levelName;
 	private int status;
 	private AnimateClicked button;
+	private TextMeshProUGUI levelText;
 	void GetLevelStatus() {
 		levelName = level.GetComponent<Level>().levelName;
 		if (firstLevel && !PlayerPrefs.HasKey(levelName + "_status"))
@@ -28,6 +30,8 @@ public class LevelSelection : MonoBehaviour
 			levelStatusText.text = "X";
 	}
 	void Start () {
+		levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
+		levelText.text = "";
 		levelDetails = level.GetComponent<Level>();
 		button = GetComponent<AnimateClicked>();
 		GetLevelStatus();
@@ -47,4 +51,12 @@ public class LevelSelection : MonoBehaviour
 		if (status > 0 || LevelManager.testMode)
 			StartCoroutine(SelectLevel());
 	}
+	void OnMouseOver()
+	{
+		levelText.text = status == 2 ? levelName : level.GetComponent<Level>().levelNameHint;
+	}
+	void OnMouseExit()
+    {
+        levelText.text = "";
+    }
 }
