@@ -8,7 +8,7 @@ public class Object : MonoBehaviour
     public Vector3  expectedPosition;
     private float    validationTimer = 1.0f;
     private float    currentTimer;
-    private int offsetValidation = 10;
+    private int offsetValidation = 6;
     [HideInInspector] public bool finished = false;
     [HideInInspector] public Level level;
     void Start()
@@ -19,17 +19,21 @@ public class Object : MonoBehaviour
     void ObjectDone()
     {
         finished = true;
+        Debug.Log("Finished");
     }
-    bool CheckMatchOffset(float input, float expected) {
-        return (expected - offsetValidation < input && input < expected + offsetValidation);
+    bool CheckMatchOffset() {
+        Quaternion current = Quaternion.Euler (transform.rotation.eulerAngles);
+        Quaternion expected = Quaternion.Euler (expectedRotation);
+
+        float angle = Quaternion.Angle (current, expected);
+
+        bool sameRotation = Mathf.Abs(angle) < offsetValidation;
+        Debug.Log(angle);
+        return sameRotation;
     }
     void CheckValidation() {
-        bool validation = false;
-        validation = CheckMatchOffset(transform.rotation.eulerAngles.y, expectedRotation.y);
-        if (level.currentDifficulty > Level.difficulty.ONE)
-            validation = validation && CheckMatchOffset(transform.rotation.eulerAngles.x, expectedRotation.x);
-        if (level.currentDifficulty > Level.difficulty.TWO)
-            validation = validation && CheckMatchOffset(transform.position.y, expectedPosition.y);
+        bool validation = CheckMatchOffset();
+
         if (validation && currentTimer > 0.0f)
             currentTimer -= Time.deltaTime;
         else if (validation)

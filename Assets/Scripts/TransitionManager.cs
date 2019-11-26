@@ -23,7 +23,6 @@ public class TransitionManager : MonoBehaviour
     }
     public void TriggerTransition()
     {
-        Debug.Log("Transition triggered");
         canvas.enabled = true;
         animator.SetTrigger("Fade");
     }
