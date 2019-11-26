@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class EndOfLevelMenu : MonoBehaviour
+public class DisplayLevelHeader : MonoBehaviour
 {
     private TextMeshProUGUI title;
+    public GameObject levelLoader;
     private Level level;
+
     void Start()
     {
         title = GetComponent<TextMeshProUGUI>();
-        level = LevelManager.selectedLevel.GetComponent<Level>();
+        Debug.Log(levelLoader.GetComponent<LevelLoader>());
+        level = levelLoader.GetComponent<LevelLoader>().level.GetComponent<Level>();
     }
 
     void Update()
