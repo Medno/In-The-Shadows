@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ModeSelection : MonoBehaviour
@@ -15,12 +14,10 @@ public class ModeSelection : MonoBehaviour
         else
             LevelManager.testMode = false;
         yield return StartCoroutine(animateButton.Animate());
-        TransitionManager.instance.TriggerTransition();
     }
     void AnimateLaunching()
     {
         StartCoroutine(LaunchGame());
-        LevelManager.testMode = true;
     }
     void Start()
     {

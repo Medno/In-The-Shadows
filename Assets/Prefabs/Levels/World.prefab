@@ -185,6 +185,11 @@ PrefabInstance:
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: levelName
+      value: World
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: levelNameHint
       value: What a wonderful ...
       objectReference: {fileID: 0}
     m_RemovedComponents: []

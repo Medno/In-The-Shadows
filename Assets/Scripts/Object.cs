@@ -8,7 +8,7 @@ public class Object : MonoBehaviour
     public Vector3  expectedPosition;
     private float    validationTimer = 1.0f;
     private float    currentTimer;
-    private int offsetValidation = 5;
+    private int offsetValidation = 10;
     [HideInInspector] public bool finished = false;
     [HideInInspector] public Level level;
     void Start()

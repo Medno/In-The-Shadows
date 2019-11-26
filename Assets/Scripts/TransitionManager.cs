@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
- using UnityEngine.Events;
 
 public class TransitionManager : MonoBehaviour
 {
@@ -24,7 +23,7 @@ public class TransitionManager : MonoBehaviour
     }
     public void TriggerTransition()
     {
-        Debug.Log("Activated");
+        Debug.Log("Transition triggered");
         canvas.enabled = true;
         animator.SetTrigger("Fade");
     }

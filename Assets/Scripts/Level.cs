@@ -20,6 +20,7 @@ public class Level : MonoBehaviour
         public Vector3 startPosition;
     };
     public string levelName;
+    public string levelNameHint;
     public Level nextLevel;
     public difficulty currentDifficulty;
     public status levelStatus;

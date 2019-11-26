@@ -142,6 +142,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d5c3c295532248dabb80bf5312a54db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  functionToExecute:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3764178752104090698, guid: cdff7d0f884f544d0b77982982fbcb8f,
+          type: 3}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &6860886532294711452
 GameObject:
   m_ObjectHideFlags: 0

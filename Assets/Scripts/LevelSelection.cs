@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
@@ -32,17 +31,16 @@ public class LevelSelection : MonoBehaviour
 		levelDetails = level.GetComponent<Level>();
 		button = GetComponent<AnimateClicked>();
 		GetLevelStatus();
+		GetComponent<AnimateClicked>().functionToExecute.AddListener(TransitionManager.instance.TriggerTransition);
 	}
 	void LaunchLevel()
 	{
-    SceneManager.LoadScene("Level");
+    	SceneManager.LoadScene("Level");
 	}
 	IEnumerator SelectLevel()
 	{
 		LevelManager.selectedLevel = level;
 		yield return StartCoroutine(button.Animate());
-		Debug.Log("You pressed the button!");
-		TransitionManager.instance.TriggerTransition();
 	}
 	void OnMouseDown()
     {

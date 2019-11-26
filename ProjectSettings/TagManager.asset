@@ -8,6 +8,7 @@ TagManager:
   - Object
   - Test Mode
   - Play Mode
+  - Transition Manager
   layers:
   - Default
   - TransparentFX

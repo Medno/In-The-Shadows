@@ -7,7 +7,6 @@ public class DisplayPanel : MonoBehaviour
 {
     public GameObject panel;
     private Button button;
-
     void PanelHandler()
     {
         panel.SetActive(!panel.activeSelf);

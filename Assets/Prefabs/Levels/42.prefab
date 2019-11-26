@@ -76,7 +76,7 @@ PrefabInstance:
         type: 3}
       propertyPath: modelDetails.Array.data[0].model
       value: 
-      objectReference: {fileID: 100002, guid: 5ddeeaebc1afd4b08ad54da5e509cacd, type: 3}
+      objectReference: {fileID: 100002, guid: be55949c7a1ea45a19a2487f3ad66a8f, type: 3}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: modelDetails.Array.data[1].model
@@ -175,6 +175,17 @@ PrefabInstance:
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: levelName
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: nextLevel
+      value: 
+      objectReference: {fileID: 5703687641179538755, guid: 777e559425ea749a08eb839989c2269b,
+        type: 3}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: levelNameHint
       value: The answer of the Ultimate Question of Life
       objectReference: {fileID: 0}
     m_RemovedComponents: []
