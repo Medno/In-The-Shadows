@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class LevelSelection : MonoBehaviour
 {
@@ -10,10 +9,9 @@ public class LevelSelection : MonoBehaviour
 	public Level  levelDetails;
 	public TextMesh levelStatusText;
 	public bool	firstLevel;
-	private string levelName;
-	private int status;
-	private AnimateClicked button;
-	private TextMeshProUGUI levelText;
+	public string levelName;
+	public int status;
+	public AnimateClicked	cube;
 	void GetLevelStatus() {
 		levelName = level.GetComponent<Level>().levelName;
 		if (LevelManager.testMode)
@@ -48,34 +46,12 @@ public class LevelSelection : MonoBehaviour
 		}
 	}
 	void Start () {
-		levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
-		levelText.text = "";
 		levelDetails = level.GetComponent<Level>();
-		button = GetComponent<AnimateClicked>();
 		GetLevelStatus();
-		GetComponent<AnimateClicked>().functionToExecute.AddListener(TransitionManager.instance.TriggerTransition);
+		cube.functionToExecute.AddListener(TransitionManager.instance.TriggerTransition);
 	}
 	void LaunchLevel()
 	{
     	SceneManager.LoadScene("Level");
 	}
-	IEnumerator SelectLevel()
-	{
-		LevelManager.selectedLevel = level;
-		TransitionManager.instance.levelToLoad = "Level";
-		yield return StartCoroutine(button.Animate());
-	}
-	void OnMouseDown()
-    {
-		if (status > 0 || LevelManager.testMode)
-			StartCoroutine(SelectLevel());
-	}
-	void OnMouseOver()
-	{
-		levelText.text = status == 2 ? levelName : level.GetComponent<Level>().levelNameHint;
-	}
-	void OnMouseExit()
-    {
-        levelText.text = "";
-    }
 }
