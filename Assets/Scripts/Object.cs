@@ -9,6 +9,7 @@ public class Object : MonoBehaviour
     private float    validationTimer = 1.0f;
     private float    currentTimer;
     private int offsetValidation = 6;
+    private int offsetPositionValidation = 2;
     [HideInInspector] public bool finished = false;
     [HideInInspector] public Level level;
     void Start()
@@ -28,7 +29,8 @@ public class Object : MonoBehaviour
         float angle = Quaternion.Angle (current, expected);
 
         bool sameRotation = Mathf.Abs(angle) < offsetValidation;
-        Debug.Log(angle);
+        if (level.currentDifficulty == Level.difficulty.THREE)
+            sameRotation = sameRotation && expectedPosition.y - offsetPositionValidation < transform.position.y && transform.position.y < expectedPosition.y + offsetPositionValidation;
         return sameRotation;
     }
     void CheckValidation() {
