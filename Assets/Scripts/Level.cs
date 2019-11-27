@@ -78,7 +78,6 @@ public class Level : MonoBehaviour
         if (levelStatus != status.Done)
         {
             levelStatus = status.Done;
-            LevelManager.selectedLevel = gameObject;
             StartCoroutine(ValidationLevelAnimation());
             if (!LevelManager.testMode)
                 SaveProgression();

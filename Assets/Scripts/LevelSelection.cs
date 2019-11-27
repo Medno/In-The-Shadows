@@ -30,7 +30,17 @@ public class LevelSelection : MonoBehaviour
 			}
 			status = PlayerPrefs.GetInt(levelName + "_status");
 			if (status == 2)
+			{
 				levelStatusText.text = "✓";
+				Debug.Log(LevelManager.selectedLevel);
+				if (LevelManager.selectedLevel && LevelManager.selectedLevel.name == transform.name)
+				{
+					GetComponent<UnlockCube>().LaunchUnlock();
+					LevelManager.selectedLevel = null;
+				}
+				else
+					GetComponent<UnlockCube>().firstCube.GetComponent<LoadNextCube>().SetScale();
+			}
 			else if (status == 1)
 				levelStatusText.text = "?";
 			else
