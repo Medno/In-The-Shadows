@@ -18,9 +18,12 @@ public class DisplayLevelHeader : MonoBehaviour
 
     void Update()
     {
-        if (level.levelStatus == Level.status.Done)
-            title.text = level.levelName;
-        else
-            title.text = level.levelNameHint;
+        if (level)
+        {
+            if (level.levelStatus == Level.status.Done)
+                title.text = level.levelName;
+            else
+                title.text = level.levelNameHint;
+        }
     }
 }

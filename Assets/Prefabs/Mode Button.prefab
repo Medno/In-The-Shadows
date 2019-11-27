@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1735895147913322616}
   - component: {fileID: 1735895147913322617}
   m_Layer: 5
-  m_Name: Play Mode
+  m_Name: Mode Button
   m_TagString: Play Mode
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -104,7 +104,7 @@ MonoBehaviour:
     m_PressedColor: {r: 1, g: 1, b: 1, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0.5
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 42.55
+  m_fontSize: 45.65
   m_fontSizeBase: 74
   m_fontWeight: 400
   m_enableAutoSizing: 1

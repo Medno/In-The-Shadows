@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class DisplayPanel : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class DisplayPanel : MonoBehaviour
     void PanelHandler()
     {
         panel.SetActive(!panel.activeSelf);
+        EventSystem.current.SetSelectedGameObject(null);
     }
     void Start()
     {

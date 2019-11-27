@@ -12,6 +12,7 @@ TagManager:
   - Level Selector Header
   - End Of Level Canvas
   - Spotlight
+  - Music
   layers:
   - Default
   - TransparentFX

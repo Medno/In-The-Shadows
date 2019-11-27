@@ -16,18 +16,26 @@ public class LevelSelection : MonoBehaviour
 	private TextMeshProUGUI levelText;
 	void GetLevelStatus() {
 		levelName = level.GetComponent<Level>().levelName;
-		if (firstLevel && !PlayerPrefs.HasKey(levelName + "_status"))
+		if (LevelManager.testMode)
 		{
-			PlayerPrefs.SetInt(levelName + "_status", 1);
-            PlayerPrefs.Save();
-		}
-		status = PlayerPrefs.GetInt(levelName + "_status");
-		if (status == 2)
-			levelStatusText.text = "✓";
-		else if (status == 1 || LevelManager.testMode)
+			status = 1;
 			levelStatusText.text = "?";
+		}
 		else
-			levelStatusText.text = "X";
+		{
+			if (firstLevel && !PlayerPrefs.HasKey(levelName + "_status"))
+			{
+				PlayerPrefs.SetInt(levelName + "_status", 1);
+				PlayerPrefs.Save();
+			}
+			status = PlayerPrefs.GetInt(levelName + "_status");
+			if (status == 2)
+				levelStatusText.text = "✓";
+			else if (status == 1)
+				levelStatusText.text = "?";
+			else
+				levelStatusText.text = "X";
+		}
 	}
 	void Start () {
 		levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
