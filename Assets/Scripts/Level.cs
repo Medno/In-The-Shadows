@@ -78,6 +78,7 @@ public class Level : MonoBehaviour
         if (levelStatus != status.Done)
         {
             levelStatus = status.Done;
+            GetComponent<AudioSource>().Play();
             StartCoroutine(ValidationLevelAnimation());
             if (!LevelManager.testMode)
                 SaveProgression();

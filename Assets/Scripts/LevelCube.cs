@@ -18,11 +18,13 @@ public class LevelCube : MonoBehaviour
     void OnMouseDown()
     {
 		if (levelLinked.status > 0 || LevelManager.testMode)
+        {
 			StartCoroutine(SelectLevel());
+            GetComponent<AudioSource>().Play();
+        }
 	}
 	void OnMouseOver()
 	{
-		Debug.Log("Over " + transform.name);
 		levelText.text = levelLinked.status == 2
         ? levelLinked.levelName
         : levelLinked.level.GetComponent<Level>().levelNameHint;
