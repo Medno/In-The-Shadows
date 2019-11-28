@@ -10,6 +10,7 @@ public class LevelCube : MonoBehaviour
     IEnumerator SelectLevel()
 	{
 		LevelManager.selectedLevel = levelLinked.level;
+		LevelManager.selectedLevelPosition = transform.position;
         Debug.Log(LevelManager.selectedLevel);
 		TransitionManager.instance.levelToLoad = "Level";
 		yield return StartCoroutine(GetComponent<AnimateClicked>().Animate());

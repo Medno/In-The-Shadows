@@ -34,6 +34,8 @@ public class CameraController : MonoBehaviour
     {
         levels = GameObject.FindGameObjectsWithTag("Level");
         FindCameraBounds();
+        if (LevelManager.selectedLevel)
+            transform.position += Vector3.right * LevelManager.selectedLevelPosition.x;
     }
     void MoveCamera()
     {

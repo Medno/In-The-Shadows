@@ -5,7 +5,12 @@ using UnityEngine;
 public class LoadNextCube : MonoBehaviour
 {
     public GameObject nextCube;
+    public bool rescaled = false;
 
+    void SetRescaled()
+    {
+        rescaled = true;
+    }
     void CreateNext()
     {
         if (nextCube)

@@ -5,9 +5,18 @@ using UnityEngine;
 public class UnlockCube : MonoBehaviour
 {
     public GameObject firstCube;
+    public LoadNextCube lastCube;
+    private bool animationDone = false;
     public void LaunchUnlock()
     {
         firstCube.GetComponent<Animator>().SetTrigger("Initialization");
     }
-
+    void Update()
+    {
+        if (!animationDone && lastCube.rescaled)
+        {
+            GetComponent<LevelSelection>().next.UpsizeCubeAnimation();
+            animationDone = true;
+        }
+    }
 }

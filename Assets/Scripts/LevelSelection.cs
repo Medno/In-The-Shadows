@@ -11,7 +11,10 @@ public class LevelSelection : MonoBehaviour
 	public bool	firstLevel;
 	public string levelName;
 	public int status;
-	public AnimateClicked	cube;
+	public AnimateClicked cube;
+	public LevelSelection next;
+	public bool testUnlock = false;
+
 	void GetLevelStatus() {
 		levelName = level.GetComponent<Level>().levelName;
 		if (LevelManager.testMode)
@@ -33,10 +36,10 @@ public class LevelSelection : MonoBehaviour
 				Debug.Log(LevelManager.selectedLevel);
 				if (LevelManager.selectedLevel && LevelManager.selectedLevel.name == transform.name)
 				{
-					GetComponent<UnlockCube>().LaunchUnlock();
+					UnlockAnimation();
 					LevelManager.selectedLevel = null;
 				}
-				else
+				else if (levelDetails.nextLevel)
 					GetComponent<UnlockCube>().firstCube.GetComponent<LoadNextCube>().SetScale();
 			}
 			else if (status == 1)
@@ -44,6 +47,15 @@ public class LevelSelection : MonoBehaviour
 			else
 				levelStatusText.text = "X";
 		}
+	}
+	void UnlockAnimation()
+	{
+		GetComponent<UnlockCube>().LaunchUnlock();
+	}
+	public void UpsizeCubeAnimation()
+	{
+		Debug.Log("Upsizing..." + transform.name);
+		cube.GetComponent<Animator>().SetTrigger("Upsize");
 	}
 	void Start () {
 		levelDetails = level.GetComponent<Level>();
@@ -53,5 +65,10 @@ public class LevelSelection : MonoBehaviour
 	void LaunchLevel()
 	{
     	SceneManager.LoadScene("Level");
+	}
+	void Update()
+	{
+		if (testUnlock)
+			UnlockAnimation();
 	}
 }
