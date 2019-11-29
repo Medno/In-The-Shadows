@@ -31,6 +31,8 @@ public class Level : MonoBehaviour
     public Vector3 scale = new Vector3(1.0f, 1.0f, 1.0f);
     private CanvasDisplay eolevel;
     private Light[] spotlights;
+    public int score = 0;
+    private GameManager gameManager;
     void InitObject()
     {
         for(int i = 0; i < modelDetails.Length; i++)
@@ -52,6 +54,7 @@ public class Level : MonoBehaviour
     {
         eolevel = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
         spotlights = GameObject.FindObjectsOfType<Light>();
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         InitObject();
     }
     void SaveProgression()
@@ -60,6 +63,7 @@ public class Level : MonoBehaviour
         if (nextLevel)
             PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
         PlayerPrefs.Save();
+        gameManager.SaveGame();
     }
     IEnumerator ValidationLevelAnimation()
     {

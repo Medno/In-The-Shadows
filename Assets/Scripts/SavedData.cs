@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public enum status {
-    Locked = 1 << 1,
-    Available = 1 << 2,
-    Done = 1 << 3
-};
-[System.Serializable]
 public class LevelData
 {
     public string levelName = "";
-    public status status = status.Locked;
+    public Level.status status = Level.status.Locked;
     public int timeScore = 0;
 };
 [System.Serializable]
