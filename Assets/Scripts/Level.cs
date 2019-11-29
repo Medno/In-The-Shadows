@@ -5,9 +5,9 @@ using UnityEngine;
 public class Level : MonoBehaviour
 {
     public enum status {
-        Locked = 1 << 1,
-        Available = 1 << 2,
-        Done = 1 << 3
+        Locked = 1 << 0,
+        Available = 1 << 1,
+        Done = 1 << 2
     };
     public enum difficulty {
         ONE, TWO, THREE
@@ -23,16 +23,13 @@ public class Level : MonoBehaviour
     public string levelNameHint;
     public Level nextLevel;
     public difficulty currentDifficulty;
-    public status levelStatus;
+    public status levelStatus = status.Locked;
     public GameObject  objectPrefab;
     public LoadModels[]  modelDetails;
     private List<GameObject>  objectsInstantiated = new List<GameObject>();
-    private List<Object>  objects = new List<Object>();
+    public List<Object>  objects = new List<Object>();
     public Vector3 scale = new Vector3(1.0f, 1.0f, 1.0f);
-    private CanvasDisplay eolevel;
-    private Light[] spotlights;
     public int score = 0;
-    private GameManager gameManager;
     void InitObject()
     {
         for(int i = 0; i < modelDetails.Length; i++)
@@ -52,56 +49,6 @@ public class Level : MonoBehaviour
     }
     void Start()
     {
-        eolevel = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
-        spotlights = GameObject.FindObjectsOfType<Light>();
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         InitObject();
-    }
-    void SaveProgression()
-    {
-        PlayerPrefs.SetInt(levelName + "_status", 2);
-        if (nextLevel)
-            PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
-        PlayerPrefs.Save();
-        gameManager.SaveGame();
-    }
-    IEnumerator ValidationLevelAnimation()
-    {
-        foreach(Light light in spotlights)
-        {
-            if (light.gameObject.name == "Spot Light")
-                light.GetComponent<Animator>().SetTrigger("EOL");
-            else
-                light.GetComponent<Animator>().SetTrigger("Larger");
-        }
-        yield return new WaitForSeconds(3.0f);
-        eolevel.EnableCanvas();
-    }
-    void LevelDone()
-    {
-        if (levelStatus != status.Done)
-        {
-            levelStatus = status.Done;
-            GetComponent<AudioSource>().Play();
-            StartCoroutine(ValidationLevelAnimation());
-            if (!LevelManager.testMode)
-                SaveProgression();
-        }
-    }
-    void CheckObjectValidation()
-    {
-        if (objects.Count > 0)
-        {
-            bool allFinished = true;
-            foreach(Object obj in objects)
-                if (!obj.finished)
-                    allFinished = false;
-            if (allFinished)
-                LevelDone();
-        }
-    }
-    void Update()
-    {
-        CheckObjectValidation();
     }
 }

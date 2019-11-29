@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("GameManager saving data...");
         SavedData data = CreateSavedData();
         string json = JsonUtility.ToJson(data, true);
-        Debug.Log(Path.Combine(Application.persistentDataPath.Replace(" ", "\\ "), "/" + savedDataFilename));
         string saveStatePath = Path.Combine(Application.persistentDataPath, savedDataFilename);
+        Debug.Log("Writing: \n" + json);
         File.WriteAllText(saveStatePath, json);
     }
     void LoadFromSavedData(SavedData data)
@@ -75,8 +75,21 @@ public class GameManager : MonoBehaviour
             SaveGame();
         }
     }
-    void Update()
+    public void EditLevelData(Level level)
     {
-
+        Level levelGM = null;
+        foreach(Level lvl in levels)
+            if (lvl.levelName == level.levelName)
+            {
+                levelGM = lvl;
+                break;
+            }
+        if (levelGM)
+        {
+            if (levelGM.levelStatus != level.levelStatus)
+                levelGM.levelStatus = level.levelStatus;
+            if (levelGM.score < level.score)
+                levelGM.score = level.score;
+        }
     }
 }

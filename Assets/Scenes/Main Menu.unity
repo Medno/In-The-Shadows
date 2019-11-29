@@ -551,6 +551,56 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!1 &580002949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 580002951}
+  - component: {fileID: 580002950}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Game Manager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &580002950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580002949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b6ca9e365b0242b7bf6ae77922618fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMode: 0
+  levels:
+  - {fileID: 7644366048149945476, guid: 05089cfdc14c04ecca138beb68c6d1cc, type: 3}
+  - {fileID: 7272832610478604444, guid: d45e07cceeaee4a64a80d3912b0dadb5, type: 3}
+  - {fileID: 4934027927242487704, guid: 0c147ce9acd864679a7496f9790f57fa, type: 3}
+  - {fileID: 5703687641179538755, guid: 777e559425ea749a08eb839989c2269b, type: 3}
+  score: 0
+--- !u!4 &580002951
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580002949}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.4150162, y: 1.681833, z: 1.8824677}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &788536677
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +890,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 61.9
+  m_fontSize: 62
   m_fontSizeBase: 50
   m_fontWeight: 400
   m_enableAutoSizing: 1

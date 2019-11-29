@@ -13,7 +13,7 @@ public class DisplayLevelHeader : MonoBehaviour
     {
         title = GetComponent<TextMeshProUGUI>();
         Debug.Log(levelLoader.GetComponent<LevelLoader>());
-        level = levelLoader.GetComponent<LevelLoader>().level.GetComponent<Level>();
+        level = levelLoader.GetComponent<LevelLoader>().levelGO.GetComponent<Level>();
     }
 
     void Update()

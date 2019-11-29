@@ -14,5 +14,4 @@ public class SavedData
 {
     public int score = 0;
     public List<LevelData> levels = new List<LevelData>();
-
 };

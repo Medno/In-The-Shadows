@@ -13,6 +13,7 @@ TagManager:
   - End Of Level Canvas
   - Spotlight
   - Music
+  - Game Manager
   layers:
   - Default
   - TransparentFX
