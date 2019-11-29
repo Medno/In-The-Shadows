@@ -69,107 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
-      propertyPath: modelDetails.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].model
-      value: 
-      objectReference: {fileID: 100002, guid: be55949c7a1ea45a19a2487f3ad66a8f, type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].model
-      value: 
-      objectReference: {fileID: 100002, guid: a525f07034f574c52ad08e8bd195adaa, type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: scale.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: scale.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: scale.z
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].expectedPosition.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].expectedPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].expectedPosition.z
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].expectedRotation.y
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].expectedRotation.y
-      value: 95
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].expectedPosition.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].expectedPosition.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].expectedPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].startPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].startPosition.z
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].startPosition.x
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].startPosition.x
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[0].startPosition.y
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: modelDetails.Array.data[1].startPosition.y
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: currentDifficulty
+      propertyPath: objects.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
@@ -179,14 +79,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
-      propertyPath: nextLevel
-      value: 
-      objectReference: {fileID: 5703687641179538755, guid: 777e559425ea749a08eb839989c2269b,
-        type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
       propertyPath: levelNameHint
       value: The answer of the Ultimate Question of Life
       objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: currentDifficulty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 6094821523454974007, guid: a5b3cacbc0af343889942aab78db4a0d,
+        type: 3}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 543334272970790767, guid: d16958b3bfc904e689d96c2f3783ba8b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a1c511b43494d3ca6f39afbe52c72c, type: 3}

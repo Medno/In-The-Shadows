@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661863198507734870}
-  - component: {fileID: 661863198507734869}
+  - component: {fileID: 8854903595126965913}
   - component: {fileID: 5396793970053426047}
   m_Layer: 0
   m_Name: Level Selector
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &661863198507734869
+--- !u!114 &8854903595126965913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,11 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 0}
-  levelDetails: {fileID: 0}
   levelStatusText: {fileID: 2796739466635865003}
-  firstLevel: 0
-  levelName: 
-  status: 0
   cube: {fileID: 3703583844052216494}
   next: {fileID: 0}
   testUnlock: 0
@@ -4924,7 +4920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f32d8c6fd8a264ed5b266facd1baea19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelLinked: {fileID: 661863198507734869}
+  levelLinked: {fileID: 8854903595126965913}
 --- !u!82 &8393143236444399998
 AudioSource:
   m_ObjectHideFlags: 0

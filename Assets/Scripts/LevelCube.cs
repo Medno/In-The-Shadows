@@ -5,19 +5,20 @@ using TMPro;
 
 public class LevelCube : MonoBehaviour
 {
-    public LevelSelection levelLinked;
+    public SelectorCube levelLinked;
     private TextMeshProUGUI levelText;
+    private GameManager gameManager;
     IEnumerator SelectLevel()
 	{
-		LevelManager.selectedLevel = levelLinked.level;
-		LevelManager.selectedLevelPosition = transform.position;
-        Debug.Log(LevelManager.selectedLevel);
+		gameManager.selectedLevel = levelLinked.level;
+		gameManager.selectedLevelPosition = transform.position;
+        Debug.Log(gameManager.selectedLevel);
 		TransitionManager.instance.levelToLoad = "Level";
 		yield return StartCoroutine(GetComponent<AnimateClicked>().Animate());
 	}
     void OnMouseDown()
     {
-		if (levelLinked.status > 0 || LevelManager.testMode)
+		if (levelLinked.level.levelStatus != Level.status.Locked || gameManager.testMode)
         {
 			StartCoroutine(SelectLevel());
             GetComponent<AudioSource>().Play();
@@ -25,9 +26,9 @@ public class LevelCube : MonoBehaviour
 	}
 	void OnMouseOver()
 	{
-		levelText.text = levelLinked.status == 2
-        ? levelLinked.levelName
-        : levelLinked.level.GetComponent<Level>().levelNameHint;
+		levelText.text = levelLinked.level.levelStatus == Level.status.Done
+        ? levelLinked.level.levelName
+        : levelLinked.level.levelNameHint;
 	}
 	void OnMouseExit()
     {
@@ -35,6 +36,7 @@ public class LevelCube : MonoBehaviour
     }
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
 		levelText.text = "";
     }

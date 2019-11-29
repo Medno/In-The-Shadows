@@ -17,7 +17,9 @@ public class ResetData : MonoBehaviour
     }
     void Reset()
     {
-        PlayerPrefs.DeleteAll();
+        // PlayerPrefs.DeleteAll();
+//TODO: Reset all data in the GameManager
+
         StartCoroutine(DisplayConfirmation());
     }
     void Start()

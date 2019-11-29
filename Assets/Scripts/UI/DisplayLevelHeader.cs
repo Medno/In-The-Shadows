@@ -6,14 +6,15 @@ using TMPro;
 public class DisplayLevelHeader : MonoBehaviour
 {
     private TextMeshProUGUI title;
-    public GameObject levelLoader;
+    public LevelLoader levelLoader;
     private Level level;
 
     void Start()
     {
         title = GetComponent<TextMeshProUGUI>();
-        Debug.Log(levelLoader.GetComponent<LevelLoader>());
-        level = levelLoader.GetComponent<LevelLoader>().levelGO.GetComponent<Level>();
+        Debug.Log(levelLoader);
+        level = levelLoader.level;
+        //Display obj name at the end
     }
 
     void Update()

@@ -9,12 +9,14 @@ public class GameManager : MonoBehaviour
     public Level[] levels;
     public int score = 0;
     private string savedDataFilename = "saved.json";
+    public Level selectedLevel;
+    public Vector3 selectedLevelPosition;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Game Manager");
         if (objs.Length > 1)
             Destroy(this.gameObject);
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(objs[0]);
     }
     void Start()
     {
@@ -78,12 +80,15 @@ public class GameManager : MonoBehaviour
     public void EditLevelData(Level level)
     {
         Level levelGM = null;
+        Debug.Log(level.levelName);
         foreach(Level lvl in levels)
             if (lvl.levelName == level.levelName)
             {
                 levelGM = lvl;
                 break;
             }
+        Debug.Log(levelGM);
+        Debug.Log(level.levelStatus);
         if (levelGM)
         {
             if (levelGM.levelStatus != level.levelStatus)

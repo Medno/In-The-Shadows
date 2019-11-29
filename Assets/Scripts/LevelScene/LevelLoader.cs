@@ -4,36 +4,38 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
-    [HideInInspector] public GameObject levelGO;
-    private Level level;
+    [HideInInspector] public Level level;
     private Light[] spotlights;
     private CanvasDisplay eolevel;
     private GameManager gameManager;
     [SerializeField] private bool finished;
-    void Awake()
+    private List<GameObject> objsInstantiated = new List<GameObject>();
+    private List<Object> objs = new List<Object>();
+    void CreateObjects()
     {
-        if (LevelManager.selectedLevel)
-            levelGO = Instantiate(LevelManager.selectedLevel, LevelManager.selectedLevel.transform.position, Quaternion.identity);
-        else
-            Debug.Log("There is no level to load");
+        foreach (GameObject obj in level.objects)
+        {
+            GameObject instanciated = Instantiate(obj, obj.transform.position, Quaternion.identity);
+            objs.Add(instanciated.GetComponent<Object>());
+            instanciated.transform.parent = gameObject.transform;
+            objsInstantiated.Add(instanciated);
+        }
     }
     void Start()
     {
-        // if (levelGO != null)
-            // level = levelGO.GetComponent<Level>();
-        level = GameObject.FindGameObjectWithTag("Level").GetComponent<Level>();
-        finished = false;
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         spotlights = GameObject.FindObjectsOfType<Light>();
         eolevel = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        if (gameManager.selectedLevel)
+            level = gameManager.selectedLevel;
+        finished = false;
+        CreateObjects();
     }
     void SaveProgression()
     {
-        // PlayerPrefs.SetInt(levelName + "_status", 2);
-        // if (nextLevel)
-        //     PlayerPrefs.SetInt(nextLevel.levelName + "_status", 1);
-        // PlayerPrefs.Save();
         gameManager.EditLevelData(level);
+        Debug.Log("Status of next Level : " + level.nextLevel.levelStatus);
+        gameManager.EditLevelData(level.nextLevel);
         gameManager.SaveGame();
     }
     IEnumerator ValidationLevelAnimation()
@@ -54,16 +56,19 @@ public class LevelLoader : MonoBehaviour
         GetComponent<AudioSource>().Play();
         StartCoroutine(ValidationLevelAnimation());
         if (level.levelStatus != Level.status.Done)
+        {
             level.levelStatus = Level.status.Done;
+            level.nextLevel.levelStatus = Level.status.Available;
+        }
         if (!LevelManager.testMode)
             SaveProgression();
     }
     void CheckObjectValidation()
     {
-        if (level.objects.Count > 0)
+        if (objsInstantiated.Count > 0)
         {
             bool allFinished = true;
-            foreach(Object obj in level.objects)
+            foreach(Object obj in objs)
                 if (!obj.finished)
                     allFinished = false;
             if (allFinished)

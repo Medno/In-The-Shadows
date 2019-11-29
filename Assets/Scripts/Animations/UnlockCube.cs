@@ -15,7 +15,7 @@ public class UnlockCube : MonoBehaviour
     {
         if (!animationDone && lastCube.rescaled)
         {
-            GetComponent<LevelSelection>().next.UpsizeCubeAnimation();
+            GetComponent<SelectorCube>().next.UpsizeCubeAnimation();
             animationDone = true;
         }
     }

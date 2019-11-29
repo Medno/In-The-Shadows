@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37312013, g: 0.3807403, b: 0.35872707, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -158,6 +158,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: World
       objectReference: {fileID: 0}
+    - target: {fileID: 661863198507734875, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 661863198507734870, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -217,8 +222,12 @@ PrefabInstance:
         type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 5703687641179538752, guid: 777e559425ea749a08eb839989c2269b,
+      objectReference: {fileID: 0}
+    - target: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 370920751375622418, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: m_Mesh
@@ -340,18 +349,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9b1f3e8b9f3b9451e802dac52b4fc9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &288083030 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
-    type: 3}
-  m_PrefabInstance: {fileID: 621752373}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b6022d10a6f45bc8d0df2f4b889c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &322499520
@@ -683,18 +680,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &509477862 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
-    type: 3}
-  m_PrefabInstance: {fileID: 1570091493}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b6022d10a6f45bc8d0df2f4b889c7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &615646560
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,13 +850,12 @@ PrefabInstance:
         type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 7272832610478604447, guid: d45e07cceeaee4a64a80d3912b0dadb5,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: next
       value: 
-      objectReference: {fileID: 509477862}
+      objectReference: {fileID: 0}
     - target: {fileID: 370920751375622418, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: m_Mesh
@@ -897,8 +881,57 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelName
+      value: Elephant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelNameHint
+      value: Frightened of a Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: nextLevel
+      value: 
+      objectReference: {fileID: 7644366048149945476, guid: 05089cfdc14c04ecca138beb68c6d1cc,
+        type: 3}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: currentDifficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 3618460165385401161, guid: 9606bbf7febd5472da9d60d916b4a7e7,
+        type: 3}
+    - target: {fileID: 8854903595126965913, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: next
+      value: 
+      objectReference: {fileID: 1570091494}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95f84049d4d945a39609d66e67e1f41, type: 3}
+--- !u!114 &621752374 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8854903595126965913, guid: b95f84049d4d945a39609d66e67e1f41,
+    type: 3}
+  m_PrefabInstance: {fileID: 621752373}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b6022d10a6f45bc8d0df2f4b889c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &748790975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1255,13 +1288,12 @@ PrefabInstance:
         type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 7644366048149945479, guid: 05089cfdc14c04ecca138beb68c6d1cc,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: next
       value: 
-      objectReference: {fileID: 2106743450}
+      objectReference: {fileID: 0}
     - target: {fileID: 370920751375622418, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: m_Mesh
@@ -1287,8 +1319,52 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelName
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelNameHint
+      value: The answer of the Ultimate Question of Life
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: currentDifficulty
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 6094821523454974007, guid: a5b3cacbc0af343889942aab78db4a0d,
+        type: 3}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.data[1]
+      value: 
+      objectReference: {fileID: 543334272970790767, guid: d16958b3bfc904e689d96c2f3783ba8b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95f84049d4d945a39609d66e67e1f41, type: 3}
+--- !u!114 &1570091494 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8854903595126965913, guid: b95f84049d4d945a39609d66e67e1f41,
+    type: 3}
+  m_PrefabInstance: {fileID: 1570091493}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3b6022d10a6f45bc8d0df2f4b889c7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1592293965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1582,18 +1658,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efba589a9d94043f6801583fc086c366, type: 3}
---- !u!114 &2106743450 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
-    type: 3}
-  m_PrefabInstance: {fileID: 135239931}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3b6022d10a6f45bc8d0df2f4b889c7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2107822041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 661863198507734870, guid: b95f84049d4d945a39609d66e67e1f41,
@@ -1816,8 +1880,7 @@ PrefabInstance:
         type: 3}
       propertyPath: level
       value: 
-      objectReference: {fileID: 4934027927242487707, guid: 0c147ce9acd864679a7496f9790f57fa,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: firstLevel
@@ -1832,7 +1895,7 @@ PrefabInstance:
         type: 3}
       propertyPath: next
       value: 
-      objectReference: {fileID: 288083030}
+      objectReference: {fileID: 0}
     - target: {fileID: 661863198507734869, guid: b95f84049d4d945a39609d66e67e1f41,
         type: 3}
       propertyPath: testUnlock
@@ -1863,5 +1926,42 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelName
+      value: Teapot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelNameHint
+      value: It's tea time
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: nextLevel
+      value: 
+      objectReference: {fileID: 7272832610478604444, guid: d45e07cceeaee4a64a80d3912b0dadb5,
+        type: 3}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: levelStatus
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2322305174978317618, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 2061770650730467456, guid: e21af4e647cd74abdb113e153c46c32e,
+        type: 3}
+    - target: {fileID: 8854903595126965913, guid: b95f84049d4d945a39609d66e67e1f41,
+        type: 3}
+      propertyPath: next
+      value: 
+      objectReference: {fileID: 621752374}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b95f84049d4d945a39609d66e67e1f41, type: 3}

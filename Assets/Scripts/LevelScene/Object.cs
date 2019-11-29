@@ -12,10 +12,12 @@ public class Object : MonoBehaviour
     private int offsetPositionValidation = 2;
     [HideInInspector] public bool finished = false;
     [HideInInspector] public Level level;
+    private GameManager gameManager;
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         currentTimer = validationTimer;
-        level = GameObject.FindObjectOfType<Level>();
+        level = gameManager.selectedLevel;
     }
     void ObjectDone()
     {
