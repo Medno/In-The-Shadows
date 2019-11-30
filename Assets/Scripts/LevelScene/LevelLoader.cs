@@ -7,7 +7,8 @@ public class LevelLoader : MonoBehaviour
     private GameManager gameManager;
     public Level level;
     private Light[] spotlights;
-    private CanvasDisplay eolevel;
+    private CanvasDisplay eolCanvas;
+    private FadePanel[] eolevel;
     public bool finished;
     private List<GameObject> objsInstantiated = new List<GameObject>();
     private List<Object> objs = new List<Object>();
@@ -25,7 +26,8 @@ public class LevelLoader : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         spotlights = GameObject.FindObjectsOfType<Light>();
-        eolevel = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
+        eolCanvas = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
+        eolevel = eolCanvas.GetComponents<FadePanel>();
         if (gameManager.selectedLevel)
             level = gameManager.selectedLevel;
         finished = false;
@@ -38,6 +40,17 @@ public class LevelLoader : MonoBehaviour
             gameManager.EditLevelData(level.nextLevel);
         gameManager.SaveGame();
     }
+    void ActiveEOLCanvas(FadePanel.panelLinked link)
+    {
+        foreach(FadePanel panel in eolevel)
+        {
+            if (panel.linked == link)
+            {
+                panel.StartFading();
+                break;
+            }
+        }
+    }
     IEnumerator ValidationLevelAnimation()
     {
         foreach(Light light in spotlights)
@@ -47,8 +60,11 @@ public class LevelLoader : MonoBehaviour
             else
                 light.GetComponent<Animator>().SetTrigger("Larger");
         }
+        eolCanvas.EnableCanvas();
+        eolCanvas.GetComponent<EnableGO>().Enable();
+        ActiveEOLCanvas(FadePanel.panelLinked.objectName);
         yield return new WaitForSeconds(3.0f);
-        eolevel.EnableCanvas();
+        ActiveEOLCanvas(FadePanel.panelLinked.pauseMenu);
     }
     void LevelDone()
     {

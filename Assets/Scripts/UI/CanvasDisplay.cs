@@ -6,9 +6,6 @@ public class CanvasDisplay : MonoBehaviour
 {
     public KeyCode  key;
     private Canvas canvas;
-    public bool persistent = false;
-    public GameObject panel;
-
     void Start() {
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
@@ -16,8 +13,11 @@ public class CanvasDisplay : MonoBehaviour
 
     IEnumerator DisableCanvasAnimation()
     {
-        panel.GetComponent<Animator>().SetTrigger("ExitMenu");
-        yield return new WaitForSeconds(1.0f);
+        FadePanel[] panels = GetComponents<FadePanel>();
+        foreach (FadePanel panel in panels)
+            panel.ExitFading();
+        if (panels.Length > 0)
+            yield return new WaitForSeconds(1.0f);
         canvas.enabled = false;
     }
     public void DisableCanvas()
@@ -27,13 +27,20 @@ public class CanvasDisplay : MonoBehaviour
     public void EnableCanvas()
     {
         canvas.enabled = true;
-        panel.GetComponent<Animator>().SetTrigger("StartMenu");
+    }
+    void ActivePauseMenu()
+    {
+        EnableCanvas();
+        FadePanel[] panels = GetComponents<FadePanel>();
+        foreach (FadePanel panel in panels)
+            panel.StartFading();
+
     }
     void Update()
     {
         if (!canvas.enabled && Input.GetKeyDown(key))
-            EnableCanvas();
-        else if (Input.GetKeyDown(key) && !persistent)
+            ActivePauseMenu();
+        else if (Input.GetKeyDown(key))
             DisableCanvas();
     }
 }

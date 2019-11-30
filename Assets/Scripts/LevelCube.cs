@@ -17,8 +17,6 @@ public class LevelCube : MonoBehaviour
 	{
 		gameManager.selectedLevel = levelLinked.level;
 		gameManager.selectedLevelPosition = transform.position;
-        Debug.Log(gameManager.selectedLevel);
-        Debug.Log(gameManager.selectedLevelPosition);
 		TransitionManager.instance.levelToLoad = "Level";
 		yield return StartCoroutine(GetComponent<AnimateClicked>().Animate());
 	}
