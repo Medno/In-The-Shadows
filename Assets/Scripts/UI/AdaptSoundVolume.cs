@@ -11,16 +11,22 @@ public class AdaptSoundVolume : MonoBehaviour
 {
     public soundType type;
     private GameManager gm;
+    private AudioSource audioSource;
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        Debug.Log(gm);
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
+        if (gm.muteAudio && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            Debug.Log("Stopping sound");
+        }
         if (type == soundType.global)
-            GetComponent<AudioSource>().volume = gm.globalVolume;
+            audioSource.volume = gm.globalVolume;
         else if (type == soundType.music)
-            GetComponent<AudioSource>().volume = gm.musicVolume * gm.globalVolume;
+            audioSource.volume = gm.musicVolume * gm.globalVolume;
     }
 }

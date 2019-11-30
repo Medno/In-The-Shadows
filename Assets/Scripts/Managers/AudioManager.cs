@@ -6,6 +6,7 @@ public class AudioManager : MonoBehaviour
 {
     public AudioClip[]  clips;
     private AudioSource audioSource;
+    private GameManager gm;
     private int indexClip;
     void Awake()
     {
@@ -18,11 +19,13 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
     }
     void Update()
     {
-        if (!audioSource.isPlaying)
+        if (!audioSource.isPlaying && !gm.muteAudio)
         {
+            Debug.Log("Play");
             audioSource.clip = clips[indexClip % clips.Length];
             indexClip++;
             audioSource.Play();

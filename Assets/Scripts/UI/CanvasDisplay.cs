@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CanvasDisplay : MonoBehaviour
 {
+    public UnityEvent functionInClosing;
     public KeyCode  key;
     private Canvas canvas;
     void Start() {
@@ -23,6 +25,16 @@ public class CanvasDisplay : MonoBehaviour
     public void DisableCanvas()
     {
         StartCoroutine(DisableCanvasAnimation());
+    }
+    public void InvertCanvasMode()
+    {
+        if (canvas.enabled)
+        {
+            DisableCanvas();
+            functionInClosing.Invoke();
+        }
+        else
+            ActivePauseMenu();
     }
     public void EnableCanvas()
     {

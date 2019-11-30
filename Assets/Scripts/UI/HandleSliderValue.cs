@@ -10,19 +10,21 @@ public class HandleSliderValue : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        Debug.Log("Slider + " + gm);
         slider = GetComponent<Slider>();
+        SetSliderValues();
+        slider.onValueChanged.AddListener(delegate {ValueChangeCheck(); });
+    }
+    void SetSliderValues()
+    {
         if (type == soundType.global)
             slider.value = gm.globalVolume;
         else if (type == soundType.music)
             slider.value = gm.musicVolume;
-        slider.onValueChanged.AddListener(delegate {ValueChangeCheck(); });
     }
     void ValueChangeCheck() {
         if (type == soundType.global)
             gm.globalVolume = slider.value;
         else if (type == soundType.music)
             gm.musicVolume = slider.value;
-
     }
 }

@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Level selectedLevel;
     public Vector3 selectedLevelPosition;
     public bool animatingNext = false;
+    public bool muteAudio {get; set;}
     public float globalVolume {get; set;}
     public float musicVolume {get; set;}
     void Awake()
@@ -36,8 +37,6 @@ public class GameManager : MonoBehaviour
                 lvl.levelStatus = Level.status.Locked;
             lvl.score = 0;
         }
-        PlayerPrefs.DeleteAll();
-        LoadVolume();
         SaveGame();
     }
     public SavedData CreateSavedData()
@@ -91,19 +90,27 @@ public class GameManager : MonoBehaviour
     }
     void LoadVolume()
     {
+        if (PlayerPrefs.HasKey("Mute"))
+            muteAudio = PlayerPrefs.GetInt("Mute") == 1 ? true : false;
+        else
+        {
+            muteAudio = false;
+            PlayerPrefs.SetInt("Mute", 0);
+        }
         globalVolume = LoadSoundVolume("GlobalVolume");
         musicVolume = LoadSoundVolume("MusicVolume");
-        Debug.Log("Global volume set to : " + globalVolume);
-        Debug.Log("Music volume set to : " + musicVolume);
     }
-    void SaveVolume()
+    public void SaveVolume()
     {
+        int muteValue = muteAudio ? 1 : 0;
+        PlayerPrefs.SetInt("Mute", muteValue);
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("GlobalVolume", globalVolume);
     }
     public void LoadGame()
     {
         Debug.Log(Application.persistentDataPath + "/" + savedDataFilename);
+        LoadVolume();
         if (File.Exists(Path.Combine(Application.persistentDataPath, savedDataFilename)))
         {
             Debug.Log("SavedData file founded, loading data...");
@@ -116,7 +123,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("SavedData file not founded, creating file...");
             SaveGame();
         }
-        LoadVolume();
     }
     public void EditLevelData(Level level)
     {

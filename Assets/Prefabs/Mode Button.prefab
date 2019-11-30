@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1735895147913322616}
   - component: {fileID: 1735895147913322617}
   - component: {fileID: 3922462171669728620}
+  - component: {fileID: 5943550305026649865}
   m_Layer: 5
   m_Name: Mode Button
   m_TagString: Play Mode
@@ -288,6 +289,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5943550305026649865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1735895147913322611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a9c4bb751774f778dbf348824be5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &1735895148518853630
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +396,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 41.55
+  m_fontSize: 45.5
   m_fontSizeBase: 74
   m_fontWeight: 400
   m_enableAutoSizing: 1
