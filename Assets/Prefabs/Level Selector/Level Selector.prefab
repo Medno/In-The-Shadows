@@ -50,6 +50,7 @@ MonoBehaviour:
   levelStatusText: {fileID: 2796739466635865003}
   cube: {fileID: 3703583844052216494}
   next: {fileID: 0}
+  willBeUnlock: 0
   testUnlock: 0
 --- !u!114 &5396793970053426047
 MonoBehaviour:
@@ -4779,6 +4780,7 @@ GameObject:
   - component: {fileID: 3703583844052216494}
   - component: {fileID: 8806505766864938033}
   - component: {fileID: 8393143236444399998}
+  - component: {fileID: 3447759268160887832}
   m_Layer: 0
   m_Name: Cube Selector
   m_TagString: Untagged
@@ -5017,6 +5019,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3447759268160887832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4434775680064800261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a9c4bb751774f778dbf348824be5a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &6860886532294711452
 GameObject:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073996, b: 0.3587269, a: 1}
+  m_IndirectSpecularColor: {r: 0.37312013, g: 0.3807403, b: 0.35872707, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -468,15 +468,15 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3764178752405133438, guid: cdff7d0f884f544d0b77982982fbcb8f,
-        type: 3}
-      propertyPath: m_TagString
-      value: Transition Manager
-      objectReference: {fileID: 0}
     - target: {fileID: 3764178752405133435, guid: cdff7d0f884f544d0b77982982fbcb8f,
         type: 3}
       propertyPath: levelToLoad
       value: Level
+      objectReference: {fileID: 0}
+    - target: {fileID: 3764178752405133438, guid: cdff7d0f884f544d0b77982982fbcb8f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Transition Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdff7d0f884f544d0b77982982fbcb8f, type: 3}
