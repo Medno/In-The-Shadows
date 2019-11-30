@@ -43,13 +43,11 @@ public class LevelLoader : MonoBehaviour
     void ActiveEOLCanvas(FadePanel.panelLinked link)
     {
         foreach(FadePanel panel in eolevel)
-        {
             if (panel.linked == link)
             {
                 panel.StartFading();
                 break;
             }
-        }
     }
     IEnumerator ValidationLevelAnimation()
     {
