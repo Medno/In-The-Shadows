@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
+    private GameManager gameManager;
     private float horizontalSpeed = 1.0f;
     private float verticalSpeed = 1.0f;
     private Vector3 screenPoint;
-    private Level   levelDetails;
     void Start()
     {
-        levelDetails = GetComponent<Object>().level;
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
     }
     void OnMouseDown()
     {
@@ -48,7 +48,7 @@ public class ObjectController : MonoBehaviour
     }
     void RotateObject()
     {
-        if (levelDetails.currentDifficulty >= Level.difficulty.TWO
+        if (gameManager.selectedLevel.currentDifficulty >= Level.difficulty.TWO
             && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
             screenPoint.y += Input.GetAxis("Mouse Y");
         else
@@ -58,7 +58,7 @@ public class ObjectController : MonoBehaviour
     void OnMouseDrag()
     {
         ResetOffset();
-        if (levelDetails.currentDifficulty == Level.difficulty.THREE
+        if (gameManager.selectedLevel.currentDifficulty == Level.difficulty.THREE
             && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
             MoveObject();
         else

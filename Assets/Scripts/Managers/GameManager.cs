@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     private string savedDataFilename = "saved.json";
     public Level selectedLevel;
     public Vector3 selectedLevelPosition;
+    public bool animatingNext = false;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Game Manager");
@@ -93,15 +94,12 @@ public class GameManager : MonoBehaviour
     public void EditLevelData(Level level)
     {
         Level levelGM = null;
-        Debug.Log(level.levelName);
         foreach(Level lvl in levels)
             if (lvl.levelName == level.levelName)
             {
                 levelGM = lvl;
                 break;
             }
-        Debug.Log(levelGM);
-        Debug.Log(level.levelStatus);
         if (levelGM)
         {
             if (levelGM.levelStatus != level.levelStatus)

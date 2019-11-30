@@ -8,11 +8,17 @@ public class LevelCube : MonoBehaviour
     public SelectorCube levelLinked;
     private TextMeshProUGUI levelText;
     private GameManager gameManager;
+    public void UpdateLevelTextStatus()
+    {
+        levelLinked.willBeUnlock = false;
+        levelLinked.levelStatusText.text = "?";
+    }
     IEnumerator SelectLevel()
 	{
 		gameManager.selectedLevel = levelLinked.level;
 		gameManager.selectedLevelPosition = transform.position;
         Debug.Log(gameManager.selectedLevel);
+        Debug.Log(gameManager.selectedLevelPosition);
 		TransitionManager.instance.levelToLoad = "Level";
 		yield return StartCoroutine(GetComponent<AnimateClicked>().Animate());
 	}
@@ -26,7 +32,7 @@ public class LevelCube : MonoBehaviour
 	}
 	void OnMouseOver()
 	{
-		levelText.text = levelLinked.level.levelStatus == Level.status.Done
+		levelText.text = levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode
         ? levelLinked.level.levelName
         : levelLinked.level.levelNameHint;
 	}

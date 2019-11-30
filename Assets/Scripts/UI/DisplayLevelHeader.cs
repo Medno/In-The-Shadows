@@ -14,6 +14,8 @@ public class DisplayLevelHeader : MonoBehaviour
         title = GetComponent<TextMeshProUGUI>();
         Debug.Log(levelLoader);
         level = levelLoader.level;
+        Debug.Log(levelLoader);
+        Debug.Log(level);
         //Display obj name at the end
     }
 
@@ -21,7 +23,7 @@ public class DisplayLevelHeader : MonoBehaviour
     {
         if (level)
         {
-            if (level.levelStatus == Level.status.Done)
+            if (levelLoader.finished)
                 title.text = level.levelName;
             else
                 title.text = level.levelNameHint;

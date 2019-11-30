@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class LevelLoader : MonoBehaviour
 {
-    [HideInInspector] public Level level;
+    private GameManager gameManager;
+    public Level level;
     private Light[] spotlights;
     private CanvasDisplay eolevel;
-    private GameManager gameManager;
-    [SerializeField] private bool finished;
+    public bool finished;
     private List<GameObject> objsInstantiated = new List<GameObject>();
     private List<Object> objs = new List<Object>();
     void CreateObjects()
@@ -21,7 +21,7 @@ public class LevelLoader : MonoBehaviour
             objsInstantiated.Add(instanciated);
         }
     }
-    void Start()
+    void Awake()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         spotlights = GameObject.FindObjectsOfType<Light>();
@@ -34,8 +34,8 @@ public class LevelLoader : MonoBehaviour
     void SaveProgression()
     {
         gameManager.EditLevelData(level);
-        Debug.Log("Status of next Level : " + level.nextLevel.levelStatus);
-        gameManager.EditLevelData(level.nextLevel);
+        if (level.nextLevel)
+            gameManager.EditLevelData(level.nextLevel);
         gameManager.SaveGame();
     }
     IEnumerator ValidationLevelAnimation()
@@ -58,9 +58,13 @@ public class LevelLoader : MonoBehaviour
         if (level.levelStatus != Level.status.Done)
         {
             level.levelStatus = Level.status.Done;
-            level.nextLevel.levelStatus = Level.status.Available;
+            if (level.nextLevel)
+            {
+                level.nextLevel.levelStatus = Level.status.Available;
+                gameManager.animatingNext = true;
+            }
         }
-        if (!LevelManager.testMode)
+        if (!gameManager.testMode)
             SaveProgression();
     }
     void CheckObjectValidation()

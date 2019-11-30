@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    private GameManager gameManager;
     private GameObject[] levels;
     private float xMin;
     private float xMax;
@@ -32,10 +33,11 @@ public class CameraController : MonoBehaviour
     }
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         levels = GameObject.FindGameObjectsWithTag("Level");
         FindCameraBounds();
-        if (LevelManager.selectedLevel)
-            transform.position += Vector3.right * LevelManager.selectedLevelPosition.x;
+        if (gameManager.selectedLevel)
+            transform.position += Vector3.right * gameManager.selectedLevelPosition.x;
     }
     void MoveCamera()
     {

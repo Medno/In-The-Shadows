@@ -10,6 +10,7 @@ public class SelectorCube : MonoBehaviour
 	public TextMesh levelStatusText;
 	public AnimateClicked cube;
 	public SelectorCube next;
+	public bool willBeUnlock = false;
 	public bool testUnlock = false;
 	void GetTextLevelStatus()
 	{
@@ -18,7 +19,7 @@ public class SelectorCube : MonoBehaviour
 			levelStatusText.text = "?";
 			return;
 		}
-		if (level.levelStatus == Level.status.Locked)
+		if (level.levelStatus == Level.status.Locked || willBeUnlock)
 			levelStatusText.text = "X";
 		else if (level.levelStatus == Level.status.Available)
 			levelStatusText.text = "?";
@@ -30,11 +31,12 @@ public class SelectorCube : MonoBehaviour
 		{
 			if (level.levelStatus == Level.status.Done)
 			{
-				Debug.Log(gameManager.selectedLevel);
-				if (gameManager.selectedLevel && gameManager.selectedLevel.name == transform.name)
+				if (gameManager.animatingNext && gameManager.selectedLevel.levelName == level.levelName)
 				{
 					UnlockAnimation();
 					gameManager.selectedLevel = null;
+					next.willBeUnlock = true;
+					gameManager.animatingNext = false;
 				}
 				else if (level.nextLevel)
 					GetComponent<UnlockCube>().firstCube.GetComponent<LoadNextCube>().SetScale();
