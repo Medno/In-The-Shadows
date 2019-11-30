@@ -9,6 +9,7 @@ public class TransitionManager : MonoBehaviour
 	private Animator animator;
 	public Canvas canvas;
     public string levelToLoad;
+    public bool quit {get; set;}
 
 	void Awake () {
 		instance = this;
@@ -16,6 +17,7 @@ public class TransitionManager : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        quit = false;
     }
     public void DisableCanvas()
     {
@@ -28,6 +30,8 @@ public class TransitionManager : MonoBehaviour
     }
     public void FadeScene()
     {
+        if (quit)
+            Application.Quit();
         SceneManager.LoadScene(levelToLoad);
     }
     public void SetLevelToLoad(string value)

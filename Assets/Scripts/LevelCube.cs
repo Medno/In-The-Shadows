@@ -30,9 +30,10 @@ public class LevelCube : MonoBehaviour
 	}
 	void OnMouseOver()
 	{
-		levelText.text = levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode
-        ? levelLinked.level.levelName
-        : levelLinked.level.levelNameHint;
+        if (levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode)
+            levelText.text = levelLinked.level.levelName;
+        else if (levelLinked.level.levelStatus == Level.status.Available)
+            levelText.text = levelLinked.level.levelNameHint;
 	}
 	void OnMouseExit()
     {

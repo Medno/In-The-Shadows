@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool muteAudio {get; set;}
     public float globalVolume {get; set;}
     public float musicVolume {get; set;}
+    private bool quit = false;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Game Manager");
@@ -140,5 +141,15 @@ public class GameManager : MonoBehaviour
             if (levelGM.score < level.score)
                 levelGM.score = level.score;
         }
+    }
+    public void QuitGame()
+    {
+        Debug.Log("Should quit");
+        quit = true;
+    }
+    void Update()
+    {
+        if (quit)
+            Application.Quit();
     }
 }
