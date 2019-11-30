@@ -22,6 +22,19 @@ public class GameManager : MonoBehaviour
     {
         LoadGame();
     }
+    public void ResetData()
+    {
+        score = 0;
+        foreach (Level lvl in levels)
+        {
+            if (lvl.firstLevel)
+                lvl.levelStatus = Level.status.Available;
+            else
+                lvl.levelStatus = Level.status.Locked;
+            lvl.score = 0;
+        }
+        SaveGame();
+    }
     public SavedData CreateSavedData()
     {
         SavedData data = new SavedData();

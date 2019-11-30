@@ -19,4 +19,5 @@ public class Level : MonoBehaviour
     public status levelStatus = status.Locked;
     public int score = 0;
     public GameObject[]  objects;
+    public bool firstLevel = false;
 }

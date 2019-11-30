@@ -8,6 +8,7 @@ public class ResetData : MonoBehaviour
 {
     public Button   reset;
     public GameObject confirmation;
+    private GameManager gm;
     IEnumerator DisplayConfirmation()
     {
         confirmation.SetActive(true);
@@ -17,13 +18,12 @@ public class ResetData : MonoBehaviour
     }
     void Reset()
     {
-        // PlayerPrefs.DeleteAll();
-//TODO: Reset all data in the GameManager
-
+        gm.ResetData();
         StartCoroutine(DisplayConfirmation());
     }
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         reset.onClick.AddListener(Reset);
     }
 }
