@@ -8,6 +8,8 @@ public class LevelCube : MonoBehaviour
     public SelectorCube levelLinked;
     private TextMeshProUGUI levelText;
     private GameManager gameManager;
+    public FadePanel detailsUICanvas;
+    public LevelUI detailsUI;
     public void UpdateLevelTextStatus()
     {
         levelLinked.willBeUnlock = false;
@@ -28,21 +30,28 @@ public class LevelCube : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 	}
-	void OnMouseOver()
+	void OnMouseEnter()
 	{
         if (levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode)
+        {
+            detailsUICanvas.StartFading();
+            detailsUI.score.text = levelLinked.level.score.ToString();
             levelText.text = levelLinked.level.levelName;
+        }
         else if (levelLinked.level.levelStatus == Level.status.Available)
             levelText.text = levelLinked.level.levelNameHint;
 	}
 	void OnMouseExit()
     {
         levelText.text = "";
+        if (detailsUI.score.text != "")
+            detailsUICanvas.ExitFading();
     }
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
 		levelText.text = "";
+        detailsUI = detailsUICanvas.GetComponent<LevelUI>();
     }
 }
