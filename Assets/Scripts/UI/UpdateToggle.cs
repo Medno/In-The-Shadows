@@ -6,9 +6,18 @@ using UnityEngine.UI;
 public class UpdateToggle : MonoBehaviour
 {
     private GameManager gm;
+    private Toggle toggle;
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        GetComponent<Toggle>().isOn = gm.muteAudio;
+        toggle = GetComponent<Toggle>();
+        toggle.isOn = gm.muteAudio;
+        toggle.onValueChanged.AddListener(delegate {
+            ToggleValueChanged();
+        });
+    }
+    void ToggleValueChanged()
+    {
+        gm.muteAudio = toggle.isOn;
     }
 }
