@@ -30,12 +30,22 @@ public class LevelCube : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 	}
+    string GetTimeScore()
+    {
+        string score = "";
+        int minutes = (int)levelLinked.level.score / 60;
+        int seconds = (int)levelLinked.level.score % 60;
+        string minutesString = minutes < 10 ? "0" + minutes : minutes.ToString();
+        string secondsString = seconds < 10 ? "0" + seconds : seconds.ToString();
+        score = minutesString + ":" + secondsString;
+        return score;
+    }
 	void OnMouseEnter()
 	{
         if (levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode)
         {
             detailsUICanvas.StartFading();
-            detailsUI.score.text = levelLinked.level.score.ToString();
+            detailsUI.time.text = GetTimeScore();
             levelText.text = levelLinked.level.levelName;
         }
         else if (levelLinked.level.levelStatus == Level.status.Available)
@@ -44,7 +54,7 @@ public class LevelCube : MonoBehaviour
 	void OnMouseExit()
     {
         levelText.text = "";
-        if (detailsUI.score.text != "")
+        if (levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode)
             detailsUICanvas.ExitFading();
     }
     void Start()

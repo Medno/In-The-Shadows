@@ -9,7 +9,7 @@ public class Object : MonoBehaviour
     private float    validationTimer = 1.0f;
     private float    currentTimer;
     private int offsetValidation = 6;
-    private int offsetPositionValidation = 2;
+    private int offsetPositionValidation = 1;
     [HideInInspector] public bool finished = false;
     [HideInInspector] public Level level;
     private GameManager gameManager;

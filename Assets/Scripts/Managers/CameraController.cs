@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     private float yMax;
     void FindCameraBounds()
     {
-        if (levels[0])
+        if (levels.Length > 0)
         {
             xMin = levels[0].transform.position.x;
             xMax = levels[0].transform.position.x;
@@ -35,6 +35,7 @@ public class CameraController : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         levels = GameObject.FindGameObjectsWithTag("Level");
+        Debug.Log(levels.Length);
         FindCameraBounds();
         if (gameManager.selectedLevel)
             transform.position += Vector3.right * gameManager.selectedLevelPosition.x;

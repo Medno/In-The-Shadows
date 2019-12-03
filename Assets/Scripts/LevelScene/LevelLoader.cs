@@ -35,9 +35,9 @@ public class LevelLoader : MonoBehaviour
     }
     void SaveProgression()
     {
-        gameManager.EditLevelData(level);
+        gameManager.EditLevelData(level, Level.status.Done);
         if (level.nextLevel)
-            gameManager.EditLevelData(level.nextLevel);
+            gameManager.EditLevelData(level.nextLevel, Level.status.Available);
         gameManager.SaveGame();
     }
     void ActiveEOLCanvas(FadePanel.panelLinked link)
@@ -67,19 +67,10 @@ public class LevelLoader : MonoBehaviour
     void LevelDone()
     {
         finished = true;
-        GetComponent<AudioSource>().Play();
-        StartCoroutine(ValidationLevelAnimation());
-        if (level.levelStatus != Level.status.Done)
-        {
-            level.levelStatus = Level.status.Done;
-            if (level.nextLevel)
-            {
-                level.nextLevel.levelStatus = Level.status.Available;
-                gameManager.animatingNext = true;
-            }
-        }
         if (!gameManager.testMode)
             SaveProgression();
+        GetComponent<AudioSource>().Play();
+        StartCoroutine(ValidationLevelAnimation());
     }
     void CheckObjectValidation()
     {

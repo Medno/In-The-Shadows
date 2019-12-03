@@ -5136,7 +5136,7 @@ PrefabInstance:
     - target: {fileID: 7083075281147682532, guid: 0eb8e16f2062348e2b3d5e63aca6147a,
         type: 3}
       propertyPath: m_Name
-      value: Score Canvas
+      value: Time Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7741524518899484015, guid: 0eb8e16f2062348e2b3d5e63aca6147a,
         type: 3}
@@ -5263,6 +5263,11 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3915990837750415735, guid: 0eb8e16f2062348e2b3d5e63aca6147a,
+        type: 3}
+      propertyPath: time
+      value: 
+      objectReference: {fileID: 8179225134587774673}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0eb8e16f2062348e2b3d5e63aca6147a, type: 3}
 --- !u!224 &8145938217893788295 stripped
@@ -5281,6 +5286,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6ed65f8334574ecd9f4b662bc89f2e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8179225134587774673 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7773553540670191929, guid: 0eb8e16f2062348e2b3d5e63aca6147a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901438436186619880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &2322675676028431435

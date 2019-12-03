@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviour
             SaveGame();
         }
     }
-    public void EditLevelData(Level level)
+    public void EditLevelData(Level level, Level.status newStatus)
     {
         Level levelGM = null;
         foreach(Level lvl in levels)
@@ -134,12 +134,22 @@ public class GameManager : MonoBehaviour
                 levelGM = lvl;
                 break;
             }
-        if (levelGM)
+        if (levelGM && newStatus == Level.status.Done)
         {
-            if (levelGM.levelStatus != level.levelStatus)
-                levelGM.levelStatus = level.levelStatus;
-            if (levelGM.score < level.score)
-                levelGM.score = level.score;
+            if (levelGM.levelStatus != Level.status.Done)
+                score += 1000;
+            if (levelGM.levelStatus != newStatus)
+                levelGM.levelStatus = newStatus;
+            int time = (int)Time.timeSinceLevelLoad;
+            if (time < levelGM.score || levelGM.score == 0)
+                score += (120 - (time - levelGM.score) * (1 + (int)(0.5 * (int)levelGM.currentDifficulty)));
+            levelGM.score = time;
+        }
+        else if (levelGM.levelStatus != Level.status.Available && newStatus == Level.status.Available)
+        {
+            levelGM.levelStatus = level.levelStatus;
+            levelGM.levelStatus = Level.status.Available;
+            animatingNext = true;
         }
     }
     public void QuitGame()
