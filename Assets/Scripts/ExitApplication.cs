@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ExitApplication : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
         GetComponent<Button>().onClick.AddListener(QuitGame);
     }
