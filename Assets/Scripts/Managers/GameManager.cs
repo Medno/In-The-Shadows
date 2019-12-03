@@ -73,7 +73,9 @@ public class GameManager : MonoBehaviour
             if (levelData == null)
             {
                 Debug.Log("Saved data corrupted, exiting...");
-                Application.Quit();
+                ResetData();
+                return ;
+                // Application.Quit();
             }
             level.levelStatus = levelData.status;
             level.score = levelData.timeScore;
