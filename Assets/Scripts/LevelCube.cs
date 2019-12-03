@@ -8,8 +8,40 @@ public class LevelCube : MonoBehaviour
     public SelectorCube levelLinked;
     private TextMeshProUGUI levelText;
     private GameManager gameManager;
-    public FadePanel detailsUICanvas;
+    public GameObject detailsUICanvas;
     public LevelUI detailsUI;
+    public FadePanel[] lockedUI;
+    public FadePanel[] unlockedUI;
+    void Start()
+    {
+        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
+		levelText.text = "";
+        detailsUI = detailsUICanvas.GetComponent<LevelUI>();
+
+        detailsUI.time.text = GetTimeScore();
+        detailsUI.difficulty.text = GetDifficulty();
+        Debug.Log(levelLinked.level.score);
+        Debug.Log(levelLinked.level.currentDifficulty);
+    }
+    string GetTimeScore()
+    {
+        string score = "";
+        int minutes = (int)levelLinked.level.score / 60;
+        int seconds = (int)levelLinked.level.score % 60;
+        string minutesString = minutes < 10 ? "0" + minutes : minutes.ToString();
+        string secondsString = seconds < 10 ? "0" + seconds : seconds.ToString();
+        score = minutesString + ":" + secondsString;
+        return score;
+    }
+    string GetDifficulty()
+    {
+        if (levelLinked.level.currentDifficulty == Level.difficulty.ONE)
+            return "One";
+        else if (levelLinked.level.currentDifficulty == Level.difficulty.TWO)
+            return "Two";
+        return "Three";
+    }
     public void UpdateLevelTextStatus()
     {
         levelLinked.willBeUnlock = false;
@@ -30,22 +62,14 @@ public class LevelCube : MonoBehaviour
             GetComponent<AudioSource>().Play();
         }
 	}
-    string GetTimeScore()
-    {
-        string score = "";
-        int minutes = (int)levelLinked.level.score / 60;
-        int seconds = (int)levelLinked.level.score % 60;
-        string minutesString = minutes < 10 ? "0" + minutes : minutes.ToString();
-        string secondsString = seconds < 10 ? "0" + seconds : seconds.ToString();
-        score = minutesString + ":" + secondsString;
-        return score;
-    }
 	void OnMouseEnter()
 	{
+        foreach(FadePanel panel in unlockedUI)
+            panel.StartFading();
         if (levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode)
         {
-            detailsUICanvas.StartFading();
-            detailsUI.time.text = GetTimeScore();
+            foreach(FadePanel panel in lockedUI)
+                panel.StartFading();
             levelText.text = levelLinked.level.levelName;
         }
         else if (levelLinked.level.levelStatus == Level.status.Available)
@@ -55,13 +79,9 @@ public class LevelCube : MonoBehaviour
     {
         levelText.text = "";
         if (levelLinked.level.levelStatus == Level.status.Done || gameManager.testMode)
-            detailsUICanvas.ExitFading();
-    }
-    void Start()
-    {
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
-		levelText.text = "";
-        detailsUI = detailsUICanvas.GetComponent<LevelUI>();
+            foreach(FadePanel panel in lockedUI)
+                panel.ExitFading();
+        foreach(FadePanel panel in unlockedUI)
+            panel.ExitFading();
     }
 }

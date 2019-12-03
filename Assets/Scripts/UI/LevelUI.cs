@@ -6,4 +6,5 @@ using TMPro;
 public class LevelUI : MonoBehaviour
 {
     public TextMeshProUGUI time;
+    public TextMeshProUGUI difficulty;
 }

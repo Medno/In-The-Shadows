@@ -10,7 +10,6 @@ public class CanvasDisplay : MonoBehaviour
     private Canvas canvas;
     void Start() {
         canvas = GetComponent<Canvas>();
-        // canvas.enabled = false;
     }
 
     IEnumerator DisableCanvasAnimation()
