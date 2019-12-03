@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,12 +11,11 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     private string savedDataFilename = "saved.json";
     public Level selectedLevel;
-    public Vector3 selectedLevelPosition;
+    public Vector3 selectedLevelPosition = Vector3.zero;
     public bool animatingNext = false;
     public bool muteAudio {get; set;}
     public float globalVolume {get; set;}
     public float musicVolume {get; set;}
-    private bool quit = false;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Game Manager");
@@ -147,17 +147,7 @@ public class GameManager : MonoBehaviour
     {
         if (level && newStatus == Level.status.Done)
             ComputeScore(level, newStatus);
-        else if (level.levelStatus != Level.status.Available && newStatus == Level.status.Available)
+        else if (level.levelStatus < Level.status.Available && newStatus == Level.status.Available)
             UnlockNext(level);
-    }
-    public void QuitGame()
-    {
-        Debug.Log("Should quit");
-        quit = true;
-    }
-    void Update()
-    {
-        if (quit)
-            Application.Quit();
     }
 }

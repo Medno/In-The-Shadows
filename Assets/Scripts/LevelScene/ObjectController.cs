@@ -6,7 +6,7 @@ public class ObjectController : MonoBehaviour
 {
     private GameManager gameManager;
     private float horizontalSpeed = 1.0f;
-    private float verticalSpeed = 1.0f;
+    private float verticalSpeed = 0.5f;
     private Vector3 screenPoint;
     void Start()
     {

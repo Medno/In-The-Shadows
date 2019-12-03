@@ -14,6 +14,8 @@ TagManager:
   - Spotlight
   - Music
   - Game Manager
+  - Locked UI
+  - Unlocked UI
   layers:
   - Default
   - TransparentFX
