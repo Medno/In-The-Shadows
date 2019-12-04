@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2699339583375554761
+--- !u!1001 &6994313473119271391
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,35 +10,19 @@ PrefabInstance:
     - target: {fileID: 2016716145938214009, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: m_Name
-      value: Crocodile
+      value: Android
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: objects.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: objects.Array.data[0]
       value: 
-      objectReference: {fileID: 3476275292246379205, guid: 256ce8e4f8a57459995058f37efc3ea7,
+      objectReference: {fileID: 1720013096, guid: 1cfd1bcb2b9ba4447be82b78a744c6a3,
         type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: objects.Array.data[1]
-      value: 
-      objectReference: {fileID: 5149770476043542998, guid: dd8dfde67beae453db2dfea0050519d4,
-        type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: levelName
-      value: Crocodile
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: levelNameHint
-      value: Ly's favorite pet
-      objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: currentDifficulty
@@ -46,9 +30,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
+      propertyPath: levelName
+      value: Android
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: levelNameHint
+      value: Mobile OS
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
       propertyPath: nextLevel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 7644366048149945476, guid: 05089cfdc14c04ecca138beb68c6d1cc,
+        type: 3}
     - target: {fileID: 2016716145938214011, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: m_LocalPosition.x

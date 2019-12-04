@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2699339583375554761
+--- !u!1001 &6929209050959630346
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 2016716145938214009, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: m_Name
-      value: Crocodile
+      value: BB-8
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
@@ -21,23 +21,11 @@ PrefabInstance:
         type: 3}
       propertyPath: objects.Array.data[0]
       value: 
-      objectReference: {fileID: 3476275292246379205, guid: 256ce8e4f8a57459995058f37efc3ea7,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: objects.Array.data[1]
       value: 
-      objectReference: {fileID: 5149770476043542998, guid: dd8dfde67beae453db2dfea0050519d4,
-        type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: levelName
-      value: Crocodile
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: levelNameHint
-      value: Ly's favorite pet
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
@@ -46,9 +34,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
+      propertyPath: levelName
+      value: BB-8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: levelNameHint
+      value: R2-D2's Heir
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
       propertyPath: nextLevel
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 4506180915335074995, guid: 05c72320afc58406d9a3c61b691cd22a,
+        type: 3}
     - target: {fileID: 2016716145938214011, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -12,6 +12,38 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elephant
       objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: objects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: levelName
+      value: Elephant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: levelNameHint
+      value: Frightened of a Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: nextLevel
+      value: 
+      objectReference: {fileID: 8857484999364023717, guid: 292e617c24ad54092ae065f26cc6d20a,
+        type: 3}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: currentDifficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
+        type: 3}
+      propertyPath: objects.Array.data[0]
+      value: 
+      objectReference: {fileID: 3618460165385401161, guid: 9606bbf7febd5472da9d60d916b4a7e7,
+        type: 3}
     - target: {fileID: 2016716145938214011, guid: 69a1c511b43494d3ca6f39afbe52c72c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,37 +99,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: objects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: levelName
-      value: Elephant
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: levelNameHint
-      value: Frightened of a Mouse
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: nextLevel
-      value: 
-      objectReference: {fileID: 7644366048149945476, guid: 05089cfdc14c04ecca138beb68c6d1cc,
-        type: 3}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: currentDifficulty
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2016716145938214010, guid: 69a1c511b43494d3ca6f39afbe52c72c,
-        type: 3}
-      propertyPath: objects.Array.data[0]
-      value: 
-      objectReference: {fileID: 3618460165385401161, guid: 9606bbf7febd5472da9d60d916b4a7e7,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69a1c511b43494d3ca6f39afbe52c72c, type: 3}
