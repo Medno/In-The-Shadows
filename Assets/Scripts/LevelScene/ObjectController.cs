@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshCollider))]
 public class ObjectController : MonoBehaviour
 {
     private GameManager gameManager;

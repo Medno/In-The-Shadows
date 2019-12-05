@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93f0f197db54b90bd548f23ddbab63, type: 3}
+  m_Name: 42
+  m_EditorClassIdentifier: 
+  levelName: 42
+  levelHint: The answer of the Ultimate Question
+  nextLevel: {fileID: 11400000, guid: 38917ad0d0e1b45348367391c34efbad, type: 2}
+  currentDifficulty: 2
+  levelStatus: 1
+  score: 0
+  objects:
+  - {fileID: 6094821523454974007, guid: a5b3cacbc0af343889942aab78db4a0d, type: 3}
+  - {fileID: 543334272970790767, guid: d16958b3bfc904e689d96c2f3783ba8b, type: 3}
+  firstLevel: 0

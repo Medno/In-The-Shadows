@@ -20,7 +20,7 @@ public class DisplayLevelHeader : MonoBehaviour
             if (levelLoader.finished)
                 title.text = level.levelName;
             else
-                title.text = level.levelNameHint;
+                title.text = level.levelHint;
         }
     }
 }

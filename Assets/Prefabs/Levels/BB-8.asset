@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93f0f197db54b90bd548f23ddbab63, type: 3}
+  m_Name: BB-8
+  m_EditorClassIdentifier: 
+  levelName: BB-8
+  levelHint: R2-D2's Heir
+  nextLevel: {fileID: 11400000, guid: 897cdcabb2eb54e76803568e04ea6cc6, type: 2}
+  currentDifficulty: 2
+  levelStatus: 1
+  score: 0
+  objects:
+  - {fileID: 8275964517575360631, guid: 8598c2f0ffa6f459a9aa49da4419b1f6, type: 3}
+  - {fileID: 5854480491048351476, guid: e781dfb8dcc7742c39cc9fa3ccb695dd, type: 3}
+  firstLevel: 0

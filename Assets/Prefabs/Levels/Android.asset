@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b93f0f197db54b90bd548f23ddbab63, type: 3}
+  m_Name: Android
+  m_EditorClassIdentifier: 
+  levelName: Android
+  levelHint: Mobile OS
+  nextLevel: {fileID: 11400000, guid: 747268387df2e47e58902e8a4245491b, type: 2}
+  currentDifficulty: 2
+  levelStatus: 1
+  score: 0
+  objects:
+  - {fileID: 1720013096, guid: 1cfd1bcb2b9ba4447be82b78a744c6a3, type: 3}
+  firstLevel: 0

@@ -45,12 +45,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   testMode: 0
   levels:
-  - {fileID: 4934027927242487704, guid: 0c147ce9acd864679a7496f9790f57fa, type: 3}
-  - {fileID: 7272832610478604444, guid: d45e07cceeaee4a64a80d3912b0dadb5, type: 3}
-  - {fileID: 8857484999364023717, guid: 292e617c24ad54092ae065f26cc6d20a, type: 3}
-  - {fileID: 7644366048149945476, guid: 05089cfdc14c04ecca138beb68c6d1cc, type: 3}
-  - {fileID: 8923229882636303472, guid: a7321782c95c14f74be79be98828a284, type: 3}
-  - {fileID: 4506180915335074995, guid: 05c72320afc58406d9a3c61b691cd22a, type: 3}
+  - {fileID: 11400000, guid: a2ed8d5550b764a18a8cee0728cf3542, type: 2}
+  - {fileID: 11400000, guid: b78524c587b9d404b846da4832628f0a, type: 2}
+  - {fileID: 11400000, guid: 9954996e0ba8049dda18af8b50b75e03, type: 2}
+  - {fileID: 11400000, guid: 747268387df2e47e58902e8a4245491b, type: 2}
+  - {fileID: 11400000, guid: 38917ad0d0e1b45348367391c34efbad, type: 2}
+  - {fileID: 11400000, guid: 897cdcabb2eb54e76803568e04ea6cc6, type: 2}
   score: 0
   selectedLevel: {fileID: 0}
   selectedLevelPosition: {x: 0, y: 0, z: 0}

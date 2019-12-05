@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+[CreateAssetMenu(fileName = "New Level", menuName = "Level")]
+public class Level : ScriptableObject
 {
     public enum status {
         Locked = 1 << 0,
@@ -13,7 +14,7 @@ public class Level : MonoBehaviour
         ONE, TWO, THREE
     };
     public string levelName;
-    public string levelNameHint;
+    public string levelHint;
     public Level nextLevel;
     public difficulty currentDifficulty;
     public status levelStatus = status.Locked;

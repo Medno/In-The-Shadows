@@ -7,7 +7,7 @@ public class ModeSelection : MonoBehaviour
 {
     private GameManager gameManager;
     private Button buttonMode;
-	private AnimateClicked animateButton;
+	private Clicked animateButton;
     IEnumerator LaunchGame()
     {
         if (tag == "Test Mode")
@@ -25,6 +25,6 @@ public class ModeSelection : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
         buttonMode = GetComponent<Button>();
         buttonMode.onClick.AddListener(AnimateLaunching);
-		animateButton = GetComponent<AnimateClicked>();
+		animateButton = GetComponent<Clicked>();
     }
 }

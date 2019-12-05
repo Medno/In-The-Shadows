@@ -52,7 +52,6 @@ MonoBehaviour:
   cube: {fileID: 3703583844052216494}
   next: {fileID: 0}
   willBeUnlock: 0
-  testUnlock: 0
 --- !u!114 &5396793970053426047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4924,6 +4923,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelLinked: {fileID: 8854903595126965913}
+  levelText: {fileID: 355247618946722383, guid: 233be59ceda784d249fbdacfd09bc748,
+    type: 3}
   detailsUICanvas: {fileID: 8660254262770868492}
   detailsUI: {fileID: 0}
   lockedUI:

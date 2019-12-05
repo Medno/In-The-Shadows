@@ -6,7 +6,7 @@ using TMPro;
 public class LevelCube : MonoBehaviour
 {
     public SelectorCube levelLinked;
-    public TextMeshProUGUI levelText;
+    private TextMeshProUGUI levelText;
     private GameManager gameManager;
     public GameObject detailsUICanvas;
     public LevelUI detailsUI;
@@ -15,7 +15,7 @@ public class LevelCube : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
-        // levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
+        levelText = GameObject.FindGameObjectWithTag("Level Selector Header").GetComponent<TextMeshProUGUI>();
 		levelText.text = "";
         detailsUI = detailsUICanvas.GetComponent<LevelUI>();
 
