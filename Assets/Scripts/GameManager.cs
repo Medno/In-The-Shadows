@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool muteAudio {get; set;}
     public float globalVolume {get; set;}
     public float musicVolume {get; set;}
+    public Resolution resolution;
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Game Manager");
@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Saved data corrupted, exiting...");
                 ResetData();
                 return ;
-                // Application.Quit();
             }
             level.levelStatus = levelData.status;
             level.score = levelData.timeScore;
@@ -93,6 +92,7 @@ public class GameManager : MonoBehaviour
     }
     void LoadVolume()
     {
+        Debug.Log("Mute is saved: " + PlayerPrefs.HasKey("Mute"));
         if (PlayerPrefs.HasKey("Mute"))
             muteAudio = PlayerPrefs.GetInt("Mute") == 1 ? true : false;
         else
@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         }
         globalVolume = LoadSoundVolume("GlobalVolume");
         musicVolume = LoadSoundVolume("MusicVolume");
+        Debug.Log(muteAudio);
     }
     public void SaveVolume()
     {

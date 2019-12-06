@@ -72,7 +72,8 @@ public class LevelLoader : MonoBehaviour
         finished = true;
         if (gameManager && !gameManager.testMode)
             SaveProgression();
-        GetComponent<AudioSource>().Play();
+        if (!gameManager || !gameManager.muteAudio)
+            GetComponent<AudioSource>().Play();
         StartCoroutine(ValidationLevelAnimation());
     }
     void CheckObjectValidation()
