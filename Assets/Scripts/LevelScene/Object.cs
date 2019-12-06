@@ -10,14 +10,15 @@ public class Object : MonoBehaviour
     private float    currentTimer;
     private int offsetValidation = 6;
     private int offsetPositionValidation = 1;
-    [HideInInspector] public bool finished = false;
-    [HideInInspector] public Level level;
-    private GameManager gameManager;
+    public bool finished = false;
+    public Level level;
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        LevelLoader loader;
+        loader = GameObject.FindGameObjectWithTag("Level Loader").GetComponent<LevelLoader>();
+        level = loader.level;
+        Debug.Log("loader.level : " + loader.level);
         currentTimer = validationTimer;
-        level = gameManager.selectedLevel;
     }
     void ObjectDone()
     {

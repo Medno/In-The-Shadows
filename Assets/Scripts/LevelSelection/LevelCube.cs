@@ -21,8 +21,6 @@ public class LevelCube : MonoBehaviour
 
         detailsUI.time.text = GetTimeScore();
         detailsUI.difficulty.text = GetDifficulty();
-        Debug.Log(levelLinked.level.score);
-        Debug.Log(levelLinked.level.currentDifficulty);
     }
     string GetTimeScore()
     {

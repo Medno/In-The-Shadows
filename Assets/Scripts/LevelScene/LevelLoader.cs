@@ -16,20 +16,23 @@ public class LevelLoader : MonoBehaviour
     {
         foreach (GameObject obj in level.objects)
         {
-            GameObject instanciated = Instantiate(obj, obj.transform.position, Quaternion.identity);
+            GameObject instanciated = Instantiate(obj, obj.transform.position, obj.transform.rotation);
             objs.Add(instanciated.GetComponent<Object>());
-            instanciated.transform.parent = gameObject.transform;
             objsInstantiated.Add(instanciated);
         }
     }
     void Awake()
     {
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        GameObject gmGO = GameObject.FindGameObjectWithTag("Game Manager");
+        if (gmGO != null)
+        {
+            gameManager = gmGO.GetComponent<GameManager>();
+            if (gameManager.selectedLevel)
+                level = gameManager.selectedLevel;
+        }
         spotlights = GameObject.FindObjectsOfType<Light>();
         eolCanvas = GameObject.FindGameObjectWithTag("End Of Level Canvas").GetComponent<CanvasDisplay>();
         eolevel = eolCanvas.GetComponents<FadePanel>();
-        if (gameManager.selectedLevel)
-            level = gameManager.selectedLevel;
         finished = false;
         CreateObjects();
     }
@@ -67,7 +70,7 @@ public class LevelLoader : MonoBehaviour
     void LevelDone()
     {
         finished = true;
-        if (!gameManager.testMode)
+        if (gameManager && !gameManager.testMode)
             SaveProgression();
         GetComponent<AudioSource>().Play();
         StartCoroutine(ValidationLevelAnimation());

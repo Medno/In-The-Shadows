@@ -9,9 +9,10 @@ public class ObjectController : MonoBehaviour
     private float horizontalSpeed = 1.0f;
     private float verticalSpeed = 0.5f;
     private Vector3 screenPoint;
+    [SerializeField]private Level level;
     void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        level = GetComponent<Object>().level;
     }
     void OnMouseDown()
     {
@@ -49,7 +50,7 @@ public class ObjectController : MonoBehaviour
     }
     void RotateObject()
     {
-        if (gameManager.selectedLevel.currentDifficulty >= Level.difficulty.TWO
+        if (level.currentDifficulty >= Level.difficulty.TWO
             && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
             screenPoint.y += Input.GetAxis("Mouse Y");
         else
@@ -59,7 +60,7 @@ public class ObjectController : MonoBehaviour
     void OnMouseDrag()
     {
         ResetOffset();
-        if (gameManager.selectedLevel.currentDifficulty == Level.difficulty.THREE
+        if (level.currentDifficulty == Level.difficulty.THREE
             && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
             MoveObject();
         else

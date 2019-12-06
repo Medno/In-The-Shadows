@@ -16,6 +16,7 @@ TagManager:
   - Game Manager
   - Locked UI
   - Unlocked UI
+  - Level Loader
   layers:
   - Default
   - TransparentFX

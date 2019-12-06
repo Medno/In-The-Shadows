@@ -19,5 +19,5 @@ MonoBehaviour:
   levelStatus: 1
   score: 0
   objects:
-  - {fileID: 1720013096, guid: 1cfd1bcb2b9ba4447be82b78a744c6a3, type: 3}
+  - {fileID: 6996291961805985042, guid: 64b16db836067441ba67469ac1873aa5, type: 3}
   firstLevel: 0
