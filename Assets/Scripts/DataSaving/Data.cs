@@ -10,7 +10,7 @@ public class LevelData
     public int timeScore = 0;
 };
 [System.Serializable]
-public class SavedData
+public class Data
 {
     public int score = 0;
     public List<LevelData> levels = new List<LevelData>();

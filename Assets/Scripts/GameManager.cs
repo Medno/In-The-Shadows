@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public bool testMode = false;
     public Level[] levels;
     public int score = 0;
-    private string savedDataFilename = "saved.json";
+    private string DataFilename = "saved.json";
     public Level selectedLevel;
     public Vector3 selectedLevelPosition = Vector3.zero;
     public bool animatingNext = false;
@@ -40,9 +40,9 @@ public class GameManager : MonoBehaviour
         }
         SaveGame();
     }
-    public SavedData CreateSavedData()
+    public Data CreateData()
     {
-        SavedData data = new SavedData();
+        Data data = new Data();
 
         data.score = score;
         foreach(Level level in levels)
@@ -58,13 +58,13 @@ public class GameManager : MonoBehaviour
     public void SaveGame()
     {
         Debug.Log("GameManager saving data...");
-        SavedData data = CreateSavedData();
+        Data data = CreateData();
         string json = JsonUtility.ToJson(data, true);
-        string saveStatePath = Path.Combine(Application.persistentDataPath, savedDataFilename);
+        string saveStatePath = Path.Combine(Application.persistentDataPath, DataFilename);
         Debug.Log("Writing: \n" + json);
         File.WriteAllText(saveStatePath, json);
     }
-    void LoadFromSavedData(SavedData data)
+    void LoadFromData(Data data)
     {
         score = data.score;
         foreach(Level level in levels)
@@ -113,18 +113,18 @@ public class GameManager : MonoBehaviour
     }
     public void LoadGame()
     {
-        Debug.Log(Application.persistentDataPath + "/" + savedDataFilename);
+        Debug.Log(Application.persistentDataPath + "/" + DataFilename);
         LoadVolume();
-        if (File.Exists(Path.Combine(Application.persistentDataPath, savedDataFilename)))
+        if (File.Exists(Path.Combine(Application.persistentDataPath, DataFilename)))
         {
-            Debug.Log("SavedData file founded, loading data...");
-            string saveFileString = File.ReadAllText(Application.persistentDataPath + "/" + savedDataFilename);
-            SavedData saved = JsonUtility.FromJson<SavedData>(saveFileString);
-            LoadFromSavedData(saved);
+            Debug.Log("Data file founded, loading data...");
+            string saveFileString = File.ReadAllText(Application.persistentDataPath + "/" + DataFilename);
+            Data saved = JsonUtility.FromJson<Data>(saveFileString);
+            LoadFromData(saved);
         }
         else
         {
-            Debug.Log("SavedData file not founded, creating file...");
+            Debug.Log("Data file not founded, creating file...");
             SaveGame();
         }
     }
