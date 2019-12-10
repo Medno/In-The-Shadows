@@ -23,7 +23,7 @@ public class ResolutionsScreen : MonoBehaviour
         if (PlayerPrefs.HasKey("FullScreen"))
             fullScreen = PlayerPrefs.GetInt("FullScreen") == 1 ? true : false;
         else
-            fullScreen = false;
+            fullScreen = true;
         if (PlayerPrefs.HasKey("Width") && PlayerPrefs.HasKey("Height"))
         {
             width = PlayerPrefs.GetInt("Width");
@@ -52,17 +52,16 @@ public class ResolutionsScreen : MonoBehaviour
         Screen.SetResolution(width, height, fullScreen);
         Save();
     }
-    void Start()
+    void SetupFullScreenToggle()
     {
-        resolutions = Screen.resolutions;
         toggle.isOn = fullScreen;
         toggle.onValueChanged.AddListener(delegate {
             ToggleValueChanged();
         });
-
-        LoadResolution();
+    }
+    void SetupDropdown()
+    {
         dropdown = GetComponent<TMP_Dropdown>();
-        Debug.Log(dropdown);
         dropdown.onValueChanged.AddListener(delegate {
             DropdownValueChanged(dropdown);
         });
@@ -70,7 +69,6 @@ public class ResolutionsScreen : MonoBehaviour
         int matchedResolutionIndex = 0;
         for(int i = 0; i < resolutions.Length; i++)
         {
-            Debug.Log(resolutions[i]);
             if (width == resolutions[i].width && height == resolutions[i].height)
                 matchedResolutionIndex = i;
             opts.Add(resolutions[i].width + "x" + resolutions[i].height);
@@ -78,9 +76,11 @@ public class ResolutionsScreen : MonoBehaviour
         dropdown.AddOptions(opts);
         dropdown.value = matchedResolutionIndex;
     }
-
-    void Update()
+    void Start()
     {
-
+        resolutions = Screen.resolutions;
+        LoadResolution();
+        SetupFullScreenToggle();
+        SetupDropdown();
     }
 }

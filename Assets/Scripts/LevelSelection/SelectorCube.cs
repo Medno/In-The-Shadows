@@ -68,9 +68,4 @@ public class SelectorCube : MonoBehaviour
 	{
     	SceneManager.LoadScene("Level");
 	}
-	void Update()
-	{
-		// if (testUnlock)
-		// 	UnlockAnimation();
-	}
 }

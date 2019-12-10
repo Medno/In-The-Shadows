@@ -35,7 +35,6 @@ public class PlayerSettings : MonoBehaviour
         }
         globalVolume = LoadSoundVolume("GlobalVolume");
         musicVolume = LoadSoundVolume("MusicVolume");
-        Debug.Log(muteAudio);
     }
     public void SaveVolume()
     {

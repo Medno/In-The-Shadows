@@ -81,9 +81,4 @@ public class PlayerProgression : MonoBehaviour
             Save();
         }
     }
-
-    void Update()
-    {
-        
-    }
 }
