@@ -5,11 +5,11 @@ using UnityEngine.UI;
 public class HandleSliderValue : MonoBehaviour
 {
     public soundType type;
-    private GameManager gm;
+    private PlayerSettings settings;
     private Slider slider;
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        settings = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<PlayerSettings>();
         slider = GetComponent<Slider>();
         SetSliderValues();
         slider.onValueChanged.AddListener(delegate {ValueChangeCheck(); });
@@ -17,14 +17,14 @@ public class HandleSliderValue : MonoBehaviour
     void SetSliderValues()
     {
         if (type == soundType.global)
-            slider.value = gm.globalVolume;
+            slider.value = settings.globalVolume;
         else if (type == soundType.music)
-            slider.value = gm.musicVolume;
+            slider.value = settings.musicVolume;
     }
     void ValueChangeCheck() {
         if (type == soundType.global)
-            gm.globalVolume = slider.value;
+            settings.globalVolume = slider.value;
         else if (type == soundType.music)
-            gm.musicVolume = slider.value;
+            settings.musicVolume = slider.value;
     }
 }

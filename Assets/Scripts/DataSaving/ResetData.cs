@@ -8,7 +8,7 @@ public class ResetData : MonoBehaviour
 {
     private Button   reset;
     public GameObject confirmation;
-    private GameManager gm;
+    private PlayerProgression progression;
     IEnumerator DisplayConfirmation()
     {
         confirmation.SetActive(true);
@@ -18,12 +18,12 @@ public class ResetData : MonoBehaviour
     }
     void Reset()
     {
-        gm.ResetData();
+        progression.Reset();
         StartCoroutine(DisplayConfirmation());
     }
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        progression = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<PlayerProgression>();
         reset = GetComponent<Button>();
         reset.onClick.AddListener(Reset);
     }

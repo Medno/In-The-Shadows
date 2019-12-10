@@ -41,7 +41,7 @@ public class LevelLoader : MonoBehaviour
         gameManager.EditLevelData(level, Level.status.Done);
         if (level.nextLevel)
             gameManager.EditLevelData(level.nextLevel, Level.status.Available);
-        gameManager.SaveGame();
+        gameManager.GetComponent<PlayerProgression>().Save();
     }
     void ActiveEOLCanvas(FadePanel.panelLinked link)
     {
@@ -72,7 +72,7 @@ public class LevelLoader : MonoBehaviour
         finished = true;
         if (gameManager && !gameManager.testMode)
             SaveProgression();
-        if (!gameManager || !gameManager.muteAudio)
+        if (!gameManager || !gameManager.GetComponent<PlayerSettings>().muteAudio)
             GetComponent<AudioSource>().Play();
         StartCoroutine(ValidationLevelAnimation());
     }

@@ -44,10 +44,4 @@ public class PlayerSettings : MonoBehaviour
         PlayerPrefs.SetFloat("MusicVolume", musicVolume);
         PlayerPrefs.SetFloat("GlobalVolume", globalVolume);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

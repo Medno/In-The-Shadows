@@ -10,23 +10,23 @@ public enum soundType {
 public class AdaptSoundVolume : MonoBehaviour
 {
     public soundType type;
-    private GameManager gm;
+    private PlayerSettings settings;
     private AudioSource audioSource;
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<GameManager>();
+        settings = GameObject.FindGameObjectWithTag("Game Manager").GetComponent<PlayerSettings>();
         audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
-        if (gm.muteAudio && audioSource.isPlaying)
+        if (settings.muteAudio && audioSource.isPlaying)
         {
             audioSource.Stop();
             Debug.Log("Stopping sound");
         }
         if (type == soundType.global)
-            audioSource.volume = gm.globalVolume;
+            audioSource.volume = settings.globalVolume;
         else if (type == soundType.music)
-            audioSource.volume = gm.musicVolume * gm.globalVolume;
+            audioSource.volume = settings.musicVolume * settings.globalVolume;
     }
 }

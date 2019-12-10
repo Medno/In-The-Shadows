@@ -10,9 +10,9 @@ public class PlayerProgression : MonoBehaviour
     void Start()
     {
         gm = GetComponent<GameManager>();
-        LoadProgression();
+        Load();
     }
-    public void ResetProgression()
+    public void Reset()
     {
         gm.score = 0;
         foreach (Level lvl in gm.levels)
@@ -23,7 +23,7 @@ public class PlayerProgression : MonoBehaviour
                 lvl.levelStatus = Level.status.Locked;
             lvl.score = 0;
         }
-        SaveProgression();
+        Save();
     }
     public Data CreateProgressionData()
     {
@@ -49,14 +49,14 @@ public class PlayerProgression : MonoBehaviour
             if (levelData == null)
             {
                 Debug.Log("Saved data corrupted, exiting...");
-                ResetProgression();
+                Reset();
                 return ;
             }
             level.levelStatus = levelData.status;
             level.score = levelData.timeScore;
         }
     }
-    public void SaveProgression()
+    public void Save()
     {
         Debug.Log("GameManager saving data...");
         Data data = CreateProgressionData();
@@ -65,10 +65,9 @@ public class PlayerProgression : MonoBehaviour
         Debug.Log("Writing: \n" + json);
         File.WriteAllText(saveStatePath, json);
     }
-    public void LoadProgression()
+    public void Load()
     {
         Debug.Log(Application.persistentDataPath + "/" + DataFilename);
-        // LoadVolume();
         if (File.Exists(Path.Combine(Application.persistentDataPath, DataFilename)))
         {
             Debug.Log("Data file founded, loading data...");
@@ -79,7 +78,7 @@ public class PlayerProgression : MonoBehaviour
         else
         {
             Debug.Log("Data file not founded, creating file...");
-            SaveProgression();
+            Save();
         }
     }
 
