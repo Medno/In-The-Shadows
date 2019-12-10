@@ -17,7 +17,9 @@ public class LevelLoader : MonoBehaviour
         foreach (GameObject obj in level.objects)
         {
             GameObject instanciated = Instantiate(obj, obj.transform.position, obj.transform.rotation);
-            objs.Add(instanciated.GetComponent<Object>());
+            Object created = instanciated.GetComponent<Object>();
+            created.level = level;
+            objs.Add(created);
             objsInstantiated.Add(instanciated);
         }
     }

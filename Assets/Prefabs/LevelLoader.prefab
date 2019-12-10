@@ -143,6 +143,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: {fileID: 0}
+  spotlights:
+  - {fileID: 7145965456101311570, guid: 1ccf73544294948ad912f16de0818d6f, type: 3}
+  - {fileID: 5764718246972120925, guid: 2b08e88edc5b5403abb928a174afbdfd, type: 3}
+  eolCanvas: {fileID: 1739814406581227659, guid: 0bd7e660cd2714639bb63d62d84d3183,
+    type: 3}
   finished: 0
 --- !u!114 &6672317677103081825
 MonoBehaviour:
@@ -169,4 +174,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd2cfa3d62a343a7bf76075e55912f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 0}
+  timer: {fileID: 2633482337580241819, guid: 31a891df88a41452bb7611f3b32f8a6b, type: 3}

@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(MeshCollider))]
 public class ObjectController : MonoBehaviour
 {
-    private GameManager gameManager;
     private float horizontalSpeed = 1.0f;
     private float verticalSpeed = 0.5f;
     private Vector3 screenPoint;
@@ -54,7 +53,7 @@ public class ObjectController : MonoBehaviour
             && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
             screenPoint.y += Input.GetAxis("Mouse Y");
         else
-            screenPoint.x += Input.GetAxis("Mouse X");
+            screenPoint.x -= Input.GetAxis("Mouse X");
         transform.Rotate(verticalSpeed * screenPoint.y * Time.deltaTime, horizontalSpeed * screenPoint.x * Time.deltaTime, 0, Space.World);
     }
     void OnMouseDrag()

@@ -14,10 +14,7 @@ public class Object : MonoBehaviour
     public Level level;
     void Start()
     {
-        LevelLoader loader;
-        loader = GameObject.FindGameObjectWithTag("Level Loader").GetComponent<LevelLoader>();
-        level = loader.level;
-        Debug.Log("loader.level : " + loader.level);
+        Debug.Log("level : " + level);
         currentTimer = validationTimer;
     }
     void ObjectDone()

@@ -25,6 +25,7 @@ public class ListenPlaylist : MonoBehaviour
     }
     void Update()
     {
-        PlayIfUnmute();
+        if (tag != "Music")
+            PlayIfUnmute();
     }
 }
