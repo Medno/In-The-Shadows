@@ -390,6 +390,11 @@ PrefabInstance:
       propertyPath: functionToExecute.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: TriggerTransition
       objectReference: {fileID: 0}
+    - target: {fileID: 1739814406581227657, guid: 0bd7e660cd2714639bb63d62d84d3183,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd7e660cd2714639bb63d62d84d3183, type: 3}
 --- !u!224 &288908191 stripped
@@ -1410,6 +1415,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4618166975983217179, guid: 21bd7636687ae4a15bcd0ef62a0e241f,
+        type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21bd7636687ae4a15bcd0ef62a0e241f, type: 3}
