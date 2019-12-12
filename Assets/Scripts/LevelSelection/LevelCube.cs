@@ -35,10 +35,10 @@ public class LevelCube : MonoBehaviour
     string GetDifficulty()
     {
         if (levelLinked.level.currentDifficulty == Level.difficulty.ONE)
-            return "One";
+            return "O";
         else if (levelLinked.level.currentDifficulty == Level.difficulty.TWO)
-            return "Two";
-        return "Three";
+            return "OO";
+        return "OOO";
     }
     public void UpdateLevelTextStatus()
     {

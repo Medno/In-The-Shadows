@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbbbbfc0d12d149e1b78f63e903f0268, type: 3}
+  m_Name: Ceiling
+  m_EditorClassIdentifier: 
+  array:
+  - {fileID: 2100000, guid: 87c8614cb1e904368a26e42294df78d4, type: 2}
+  - {fileID: 2100000, guid: 016b266c75752459ab7d588d98b25eb2, type: 2}
+  - {fileID: 2100000, guid: 5e63851797d94409e8e334d902c492f8, type: 2}
+  - {fileID: 2100000, guid: 8e645d6963e7c479ba88efa8ccfb319a, type: 2}
+  - {fileID: 2100000, guid: 9657e79ce9ea648ccb1713816ee1d920, type: 2}
+  - {fileID: 2100000, guid: bf9a1fe8af99b43b18191d592c161a49, type: 2}

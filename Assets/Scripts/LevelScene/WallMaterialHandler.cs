@@ -4,26 +4,18 @@ using UnityEngine;
 
 public class WallMaterialHandler : MonoBehaviour
 {
-    public Material[] grounds;
-    public Material[] walls;
-    public Material[] ceiling;
-    public MeshRenderer groundRenderer;
-    public MeshRenderer leftWallRenderer;
-    public MeshRenderer rightWallRenderer;
-    public MeshRenderer ceilingRenderer;
-
-    void AssignMaterial(MeshRenderer renderer, Material[] array)
+    public ListMaterials materials;
+    private MeshRenderer meshRenderer;
+    void AssignMaterial()
     {
-        Material[] materials = renderer.materials;
-        materials[0] = array[Random.Range(0, array.Length)];
-        materials[0].color = Color.white;
-        renderer.materials = materials;
+        Material[] newMaterials = meshRenderer.materials;
+        newMaterials[0] = materials.array[Random.Range(0, materials.array.Length)];
+        newMaterials[0].color = Color.white;
+        meshRenderer.materials = newMaterials;
     }
     void Start()
     {
-        AssignMaterial(groundRenderer, grounds);
-        AssignMaterial(leftWallRenderer, walls);
-        AssignMaterial(rightWallRenderer, walls);
-        AssignMaterial(ceilingRenderer, ceiling);
+        meshRenderer = GetComponent<MeshRenderer>();
+        AssignMaterial();
     }
 }

@@ -10,6 +10,7 @@ public class CameraController : MonoBehaviour
     private float xMax;
     private float yMin;
     private float yMax;
+    private float speed = 4.0f;
     void FindCameraBounds()
     {
         if (levels.Length > 0)
@@ -42,7 +43,6 @@ public class CameraController : MonoBehaviour
     }
     void MoveCamera()
     {
-        float speed = 2.0f;
         Vector3 offsetPosition = Vector3.zero;
         Vector3 castPoint = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         if (castPoint.x > 0.6f && transform.position.x < xMax + 1.0f)
