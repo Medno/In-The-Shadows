@@ -11,7 +11,7 @@ public class LevelLoader : MonoBehaviour
     private FadePanel[] eolevel;
     public bool finished;
     private List<GameObject> objsInstantiated = new List<GameObject>();
-    private List<Object> objs = new List<Object>();
+    [HideInInspector] public List<Object> objs = new List<Object>();
     void CreateObjects()
     {
         foreach (GameObject obj in level.objects)

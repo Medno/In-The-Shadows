@@ -4,31 +4,36 @@ using UnityEngine;
 
 public class Object : MonoBehaviour
 {
+    private const float validationTimer = 1.0f;
+    [HideInInspector] public float offsetValidation = 6.0f;
+    [HideInInspector] public float offsetPositionValidation = 0.5f;
+    private float    currentTimer;
+    public Level level;
     public Vector3  expectedRotation;
     public Vector3  expectedPosition;
-    private float    validationTimer = 1.0f;
-    private float    currentTimer;
-    private int offsetValidation = 6;
-    private int offsetPositionValidation = 1;
     public bool finished = false;
-    public Level level;
+    public float currentAngle;
     void Start()
     {
-        Debug.Log("level : " + level);
         currentTimer = validationTimer;
+        ComputeAngle();
     }
     void ObjectDone()
     {
         finished = true;
         Debug.Log("Finished");
     }
+    void ComputeAngle()
+    {
+        Quaternion current = Quaternion.Euler(transform.rotation.eulerAngles);
+        Quaternion expected = Quaternion.Euler(expectedRotation);
+
+        float angle = Quaternion.Angle(current, expected);
+        currentAngle = Mathf.Abs(angle);
+    }
     bool CheckMatchOffset() {
-        Quaternion current = Quaternion.Euler (transform.rotation.eulerAngles);
-        Quaternion expected = Quaternion.Euler (expectedRotation);
-
-        float angle = Quaternion.Angle (current, expected);
-
-        bool sameRotation = Mathf.Abs(angle) < offsetValidation;
+        ComputeAngle();
+        bool sameRotation = currentAngle < offsetValidation;
         if (level.currentDifficulty == Level.difficulty.THREE)
             sameRotation = sameRotation && expectedPosition.y - offsetPositionValidation < transform.position.y && transform.position.y < expectedPosition.y + offsetPositionValidation;
         return sameRotation;
