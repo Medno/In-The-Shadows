@@ -24,7 +24,7 @@ Game developed with **Unity (C#)**.
 
 Data saved on local disk, in json format
 
-# Level selector
+# Level selection
 
 ### Selector
 
