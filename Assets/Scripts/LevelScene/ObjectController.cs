@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(MeshCollider))]
 public class ObjectController : MonoBehaviour
 {
-    private float horizontalSpeed = 1.0f;
-    private float verticalSpeed = 0.5f;
+    private float horizontalSpeed = 5.0f;
+    private float verticalSpeed = 5.0f;
     private Vector3 screenPoint;
     [SerializeField]private Level level;
     void Start()
