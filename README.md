@@ -1,4 +1,4 @@
-# In-The-Shadow
+# In-The-Shadows
 
 42 school project: 3D Puzzle game. Single player shadow puppet game. Shadowmatic like
 
