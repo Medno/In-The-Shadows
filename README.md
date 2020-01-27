@@ -2,12 +2,12 @@
 
 42 school project: 3D Puzzle game. Single player shadow puppet game. Shadowmatic like
 
-![](demo_in_the_shadow.gif)
+![](../media/in_the_shadows_demo.gif)
 
 Game developed with **Unity (C#)**.
 
 # Main Menu
-![](main_menu.png)
+![](../media/main_menu.png)
 
 ### Two play modes:
 
@@ -26,7 +26,7 @@ Game developed with **Unity (C#)**.
 Data saved on local disk, in json format
 
 # Level selection
-![](level_selection.png)
+![](../media/level_selection.png)
 
 ### Selector
 
@@ -48,7 +48,7 @@ Status text of corresponding level :
 3.  Horizontal and vertical rotations + object positions (Positions: Shift + clic + mouse movement)
 
 # Level scene
-![](level.png)
+![](../media/level.png)
 
   - Distorted object representing a specific shadow with specific rotation and position
   - Progress bar until desired rotation + position
